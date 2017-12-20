@@ -1,0 +1,176 @@
+import "../generated_files/5_Supervisor.cif";
+// INPUTS
+
+// DISTRIBUTING:
+input bool s_Dstartbutton;       // 0
+input bool s_Dstopbutton;        // 1
+input bool s_Dresetbutton;       // 2
+input bool s_Dautoswitch;        // 3
+
+input bool s_Din4;               // 4
+input bool s_Din5;               // 5
+input bool s_Din6;               // 6
+input bool s_Din7;               // 7
+
+input bool s_pusher1_in;         // 8
+input bool s_pusher1_out;        // 9
+input bool s_stack1filled;       // 10
+input bool s_product1;           // 11
+input bool s_pusher2_in;         // 12
+input bool s_pusher2_out;        // 13
+input bool s_stack2filled;       // 14
+input bool s_product2;           // 15
+input bool s_pusher3_in;         // 16
+input bool s_pusher3_out;        // 17
+input bool s_stack3filled;       // 18
+input bool s_product3;           // 19
+input bool s_handlingbusy;       // 20
+
+input bool s_Dinitialized;       // 21
+
+automaton BoolToEventsDH:
+    location: initial;
+
+    //Distributing station
+    edge S_pusher1_in.u_on          when     s_pusher1_in;
+    edge S_pusher1_in.u_off         when not s_pusher1_in;
+    edge S_pusher1_out.u_on         when     s_pusher1_out;
+    edge S_pusher1_out.u_off        when not s_pusher1_out;
+    edge S_stack1_filled.u_on       when     s_stack1filled;
+    edge S_stack1_filled.u_off      when not s_stack1filled;
+    edge S_product1.u_on            when     s_product1;
+    edge S_product1.u_off           when not s_product1;
+    edge S_pusher2_in.u_on          when     s_pusher2_in;
+    edge S_pusher2_in.u_off         when not s_pusher2_in;
+    edge S_pusher2_out.u_on         when     s_pusher2_out;
+    edge S_pusher2_out.u_off        when not s_pusher2_out;
+    edge S_stack2_filled.u_on       when     s_stack2filled;
+    edge S_stack2_filled.u_off      when not s_stack2filled;
+    edge S_product2.u_on            when     s_product2;
+    edge S_product2.u_off           when not s_product2;
+    edge S_pusher3_in.u_on          when     s_pusher3_in;
+    edge S_pusher3_in.u_off         when not s_pusher3_in;
+    edge S_pusher3_out.u_on         when     s_pusher3_out;
+    edge S_pusher3_out.u_off        when not s_pusher3_out;
+    edge S_stack3_filled.u_on       when     s_stack3filled;
+    edge S_stack3_filled.u_off      when not s_stack3filled;
+    edge S_product3.u_on            when     s_product3;
+    edge S_product3.u_off           when not s_product3;
+    edge S_handlingbusy.u_on        when     s_handlingbusy;
+    edge S_handlingbusy.u_off       when not s_handlingbusy;
+    edge S_Dinitialized.u_on        when     s_Dinitialized;
+    edge S_Dinitialized.u_off       when not s_Dinitialized;
+
+    //Handling station
+    edge S_product1.u_on            when     s_product1;
+    edge S_product1.u_off           when not s_product1;
+    edge S_product2.u_on            when     s_product2;
+    edge S_product2.u_off           when not s_product2;
+    edge S_product3.u_on            when     s_product3;
+    edge S_product3.u_off           when not s_product3;
+    edge S_xpos_at1.u_on            when     s_xpos_at1;
+    edge S_xpos_at1.u_off           when not s_xpos_at1;
+    edge S_xpos_at2.u_on            when     s_xpos_at2;
+    edge S_xpos_at2.u_off           when not s_xpos_at2;
+    edge S_xpos_at3.u_on            when     s_xpos_at3;
+    edge S_xpos_at3.u_off           when not s_xpos_at3;
+    edge S_xpos_atdrop.u_on         when     s_xpos_atdrop;
+    edge S_xpos_atdrop.u_off        when not s_xpos_atdrop;
+    edge S_zpos_atup.u_on           when     s_zpos_atup;
+    edge S_zpos_atup.u_off          when not s_zpos_atup;
+    edge S_zpos_atdown.u_on         when     s_zpos_atdown;
+    edge S_zpos_atdown.u_off        when not s_zpos_atdown;
+    edge S_gripper.u_on             when     s_gripper;
+    edge S_gripper.u_off            when not s_gripper;
+    edge S_transfer_atpickup.u_on   when     s_transfer_atpickup;
+    edge S_transfer_atpickup.u_off  when not s_transfer_atpickup;
+    edge S_transfer_atdrop.u_on     when     s_transfer_atdrop;
+    edge S_transfer_atdrop.u_off    when not s_transfer_atdrop;
+    edge S_transfer_athalfway.u_on  when     s_transfer_athalfway;
+    edge S_transfer_athalfway.u_off when not s_transfer_athalfway;
+    edge S_vacuum.u_on              when     s_vacuum;
+    edge S_vacuum.u_off             when not s_vacuum;
+    edge S_product4.u_on            when     s_product4;
+    edge S_product4.u_off           when not s_product4;
+    edge S_testingbusy.u_on         when     s_testingbusy;
+    edge S_testingbusy.u_off        when not s_testingbusy;
+    edge S_Hinitialized.u_on        when     s_Hinitialized;
+    edge S_Hinitialized.u_off       when not s_Hinitialized;
+end
+
+// OUTPUTS
+
+// DISTRIBUTING:
+alg bool a_Dstartled        = false;  // 0
+alg bool a_Dresetled        = false;  // 1
+alg bool a_DledQ1           = false;  // 2
+alg bool a_DledQ2           = false;  // 3
+
+alg bool a_Dout4            = false;  // 4
+alg bool a_Dout5            = false;  // 5
+alg bool a_Dout6            = false;  // 6
+alg bool a_Dout7            = false;  // 7
+
+alg bool a_pusher1          = sup.A_pusher1.On;  // 8
+alg bool a_pusher2          = sup.A_pusher2.On;  // 9
+alg bool a_pusher3          = sup.A_pusher3.On; // 10
+
+
+
+
+// Controller to test hardware mapping, for all sensors and actuators.
+
+// INPUTS
+
+// HANDLING:
+input bool s_Hstartbutton;       // 22
+input bool s_Hstopbutton;        // 23
+input bool s_Hresetbutton;       // 24
+input bool s_Hautoswitch;        // 25
+
+input bool s_Hin4;               // 26
+input bool s_Hin5;               // 27
+input bool s_Hin6;               // 28
+input bool s_Hin7;               // 29
+
+input bool s_xpos_at1;           // 33
+input bool s_xpos_at2;           // 34
+input bool s_xpos_at3;           // 35
+input bool s_xpos_atdrop;        // 36
+input bool s_zpos_atup;          // 37
+input bool s_zpos_atdown;        // 38
+input bool s_gripper;            // 39
+input bool s_transfer_atpickup;  // 40
+input bool s_transfer_atdrop;    // 41
+input bool s_transfer_athalfway; // 42
+input bool s_vacuum;             // 43
+input bool s_product4;           // 44
+input bool s_testingbusy;        // 45
+
+input bool s_Hinitialized;       // 46
+
+// OUTPUTS
+
+// HANDLING:
+alg bool a_Hstartled        = false; // 11
+alg bool a_Hresetled        = false; // 12
+alg bool a_HledQ1           = false; // 13
+alg bool a_HledQ2           = false; // 14
+
+alg bool a_Hout4            = false; // 15
+alg bool a_Hout5            = false; // 16
+alg bool a_Hout6            = false; // 17
+alg bool a_Hout7            = false; // 18
+
+alg bool a_x2distributing   = sup.A_x2distributing.On   ; // 19
+alg bool a_x2testing        = sup.A_x2testing.On        ; // 20
+alg bool a_zdown            = sup.A_zdown.On            ; // 21
+alg bool a_gripperclose     = sup.A_gripperclose.On     ; // 22
+alg bool a_transfer2pickpos = sup.A_transfer2pickpos.On ; // 23
+alg bool a_transfer2droppos = sup.A_transfer2droppos.On ; // 24
+alg bool a_vacuum           = sup.A_vacuum.On           ; // 25
+alg bool a_ejectpulse       = sup.A_ejectpulse.On       ; // 26
+alg bool a_handlingready    = sup.A_handlingready.On    ; // 27
+
+
+

@@ -1,0 +1,27 @@
+from "lib:cif3" import *;
+
+// Output files
+string sup_path    = "generated_files/5_Supervisor.cif";           //Location of supervisor
+// Input files
+string in_path_db  = "plant.cif";
+
+
+// Create directory for generated files.\
+mkdir("generated_files", force=true);
+
+
+// Synthesise supervisor.
+outln("File \"%s\": synthesizing...", sup_path);
+cif3datasynth(in_path_db,
+    "--option-dialog=1",
+    "-o", sup_path,
+    "-n", fmt("sup"),
+    //"--bdd-simplify=-guards-se-excl-req-invs,-guards-state-req-invs", //Option to remove state/event requirements from the supervisor, removes warnings
+    //"--bdd-simplify=-guards-state-req-invs",
+    "-t normal",
+    "-m debug",
+    "--stats=timing",
+    "--bdd-table=400000");
+outln("File \"%s\": synthesized.", sup_path);
+
+

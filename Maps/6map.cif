@@ -1,0 +1,77 @@
+import "../generated_files/5_Supervisor.cif";
+// INPUTS
+
+input bool s_Sstartbutton;    // 0
+input bool s_Sstopbutton;     // 1
+input bool s_Sautoswitch;     // 2
+input bool s_Sresetbutton;    // 3
+
+input bool s_Sin4;            // 4
+input bool s_Sin5;            // 5
+input bool s_Sin6;            // 6
+input bool s_Sin7;            // 7
+
+input bool s_product;         // 8
+input bool s_inductive;       // 9
+input bool s_optical;         // 10
+input bool s_slidefull;       // 11
+input bool s_gate1_opened;    // 12
+input bool s_gate1_closed;    // 13
+input bool s_gate2_opened;    // 14
+input bool s_gate2_closed;    // 15
+
+input bool s_Sinitialized;    // 16
+
+plant STimer1:
+    cont t = 0.0 der if Running: 1.0 else 0.0 end;
+    location Off:
+        initial; marked;
+        edge STimer.c_on goto Running;
+    location Running:
+        edge STimer.u_timeout when t > 0.5 goto Timeout;
+        edge STimer.c_reset do t := 0.0 goto Off;
+    location Timeout:
+        edge STimer.c_reset do t := 0.0 goto Off;
+end
+
+automaton BoolToEventsS:
+    location: initial;
+
+    //Distributing station
+    edge S_product.u_on       when     s_product;
+    edge S_product.u_off      when not s_product;
+    edge S_inductive.u_on     when     s_inductive;
+    edge S_inductive.u_off    when not s_inductive;
+    edge S_optical.u_on       when     s_optical;
+    edge S_optical.u_off      when not s_optical;
+    edge S_slidefull.u_on     when     s_slidefull;
+    edge S_slidefull.u_off    when not s_slidefull;
+    edge S_gate1_opened.u_on  when     s_gate1_opened;
+    edge S_gate1_opened.u_off when not s_gate1_opened;
+    edge S_gate1_closed.u_on  when     s_gate1_closed;
+    edge S_gate1_closed.u_off when not s_gate1_closed;
+    edge S_gate2_opened.u_on  when     s_gate2_opened;
+    edge S_gate2_opened.u_off when not s_gate2_opened;
+    edge S_gate2_closed.u_on  when     s_gate2_closed;
+    edge S_gate2_closed.u_off when not s_gate2_closed;
+    edge S_Sinitialized.u_on  when     s_Sinitialized;
+    edge S_Sinitialized.u_off when not s_Sinitialized;
+end
+
+// OUTPUTS
+
+alg bool a_Sstartled      = false;  // 0
+alg bool a_Sresetled      = false;  // 1
+alg bool a_SledQ1         = false;  // 2
+alg bool a_SledQ2         = false;  // 3
+
+alg bool a_Sout4          = false;  // 4
+alg bool a_Sout5          = false;  // 5
+alg bool a_Sout6          = false;  // 6
+alg bool a_Sout7          = false;  // 7
+
+alg bool a_conveyer       = sup.A_conveyer.On       ;  // 8
+alg bool a_gate1          = sup.A_gate1.On          ;  // 9
+alg bool a_gate2          = sup.A_gate2.On          ; // 10
+alg bool a_stopperretract = sup.A_stopperretract.On ; // 11
+alg bool a_sortingready   = sup.A_sortingready.On   ; // 12

@@ -1,0 +1,4 @@
+import "Maps/12map.cif";
+import "Maps/34map.cif";
+import "Maps/5map.cif";
+import "Maps/6map.cif";

@@ -1,0 +1,5 @@
+34maps.cif:
+    - Sensor S_atexit  -> S_atend
+    - Sensor S_product -> S_atin
+    - Sensor S_optical -> S_opticalT
+    - Actuator A_conveyer -> A_conveyerB

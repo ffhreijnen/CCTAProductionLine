@@ -1,0 +1,91 @@
+import "../generated_files/5_Supervisor.cif";
+// INPUTS
+
+input bool s_Pstartbutton;    // 0
+input bool s_Pstopbutton;     // 1
+input bool s_Pautoswitch;     // 2
+input bool s_Presetbutton;    // 3
+
+input bool s_Pin4;            // 4
+input bool s_Pin5;            // 5
+input bool s_Pin6;            // 6
+input bool s_Pin7;            // 7
+
+input bool s_atinput;         // 8
+input bool s_attest;          // 9
+input bool s_atdrill;         // 10
+input bool s_atexit;          // 11
+input bool s_atspare;         // 12
+input bool s_clamp;           // 13
+input bool s_test_ok;         // 14
+input bool s_drill_up;        // 15
+input bool s_drill_down;      // 16
+input bool s_turntable;       // 17
+input bool s_sortingbusy;     // 18
+
+input bool s_Pinitialized;    // 19
+
+plant Timer1:
+    cont t = 0.0 der if Running: 1.0 else 0.0 end;
+    location Off:
+        initial; marked;
+        edge Timer.c_on goto Running;
+    location Running:
+        edge Timer.u_timeout when t > 0.5 goto Timeout;
+        edge Timer.c_reset do t := 0.0 goto Off;
+    location Timeout:
+        edge Timer.c_reset do t := 0.0 goto Off;
+end
+
+automaton BoolToEventsP:
+    location: initial;
+
+    //Distributing station
+    edge S_atinput.u_on       when     s_atinput;
+    edge S_atinput.u_off      when not s_atinput;
+    edge S_attest.u_on        when     s_attest;
+    edge S_attest.u_off       when not s_attest;
+    edge S_atdrill.u_on       when     s_atdrill;
+    edge S_atdrill.u_off      when not s_atdrill;
+    edge S_atexit.u_on        when     s_atexit;
+    edge S_atexit.u_off       when not s_atexit;
+    edge S_atspare.u_on       when     s_atspare;
+    edge S_atspare.u_off      when not s_atspare;
+    edge S_clamp.u_on         when     s_clamp;
+    edge S_clamp.u_off        when not s_clamp;
+    edge S_test_ok.u_on       when     s_test_ok;
+    edge S_test_ok.u_off      when not s_test_ok;
+    edge S_drill_up.u_on      when     s_drill_up;
+    edge S_drill_up.u_off     when not s_drill_up;
+    edge S_drill_down.u_on    when     s_drill_down;
+    edge S_drill_down.u_off   when not s_drill_down;
+    edge S_turntable.u_on     when     s_turntable;
+    edge S_turntable.u_off    when not s_turntable;
+    edge S_sortingbusy.u_on   when     s_sortingbusy;
+    edge S_sortingbusy.u_off  when not s_sortingbusy;
+    edge S_Pinitialized.u_on  when     s_Pinitialized;
+    edge S_Pinitialized.u_off when not s_Pinitialized;
+end
+
+// OUTPUTS
+
+// OUTPUTS
+
+alg bool a_Pstartled       = false;  // 0
+alg bool a_Presetled       = false;  // 1
+alg bool a_PledQ1          = false;  // 2
+alg bool a_PledQ2          = false;  // 3
+
+alg bool a_Pout4           = false;  // 4
+alg bool a_Pout5           = false;  // 5
+alg bool a_Pout6           = false;  // 6
+alg bool a_Pout7           = false;  // 7
+
+alg bool a_drill           = sup.A_drill.On           ; // 8
+alg bool a_turntable       = sup.A_turntable.On       ; // 9
+alg bool a_drilldown       = sup.A_drilldown.On       ; // 10
+alg bool a_drillup         = sup.A_drillup.On         ; // 11
+alg bool a_clamp           = sup.A_clamp.On           ; // 12
+alg bool a_tester          = sup.A_tester.On          ; // 13
+alg bool a_eject           = sup.A_eject.On           ; // 14
+alg bool a_processingready = sup.A_processingready.On ; // 15

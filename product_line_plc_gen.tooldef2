@@ -1,0 +1,21 @@
+from "lib:cif3" import *;
+
+string gen_dir     = "generated_files";
+string ctrl_file   = "maps.cif";
+string hw_file     = "hw.cif";
+string merged_file = "generated_files/ctrl_hw.cif";
+string merged_file2= "generated_files/ctrl_hw2.cif";
+
+string plc_dir     = "generated_files/controller.xml";
+string plc_dir2    = "generated_files/controller2.xml";
+
+if not isdir(gen_dir):: mkdir(gen_dir);
+if isfile(merged_file):: rmfile(merged_file);
+
+cif3merge(fmt("%s %s -o %s", ctrl_file, hw_file, merged_file));
+
+
+cif3merge(ctrl_file, hw_file, "-o", merged_file);
+cif3cif(merged_file, "-t", "elim-alg-vars", "-o", merged_file2);
+cif3plc(fmt("%s -o %s -t plc-open-xml", merged_file, plc_dir));
+cif3plc(fmt("%s -o %s -t plc-open-xml", merged_file2, plc_dir2 ));
