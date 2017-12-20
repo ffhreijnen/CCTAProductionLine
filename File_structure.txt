@@ -1,1 +1,23 @@
+Input files:
+[plant.cif] Code for plant models, and requirement models, imports:
+  [Plants/12plant.cif] Code for distributing workstation and handling workstation plant models, and requirement models.
+  [Plants/34plant.cif] Code for testing workstation and buffering workstation plant models, and requirement models.
+  [Plants/5plant.cif] Code for processing workstation plant models, and requirement models.
+  [Plants/6plant.cif] Code for sorting workstation and handling workstation plant models, and requirement models
+  
+[hw.cif] Code for PLC I/O coupling and Initialization of workstations, imports:
+  [HWs/12hw.cif] Code for distributing workstation and handling workstation PLC I/O coupling and Initialization of workstations
+  [HWs/34hw.cif] Code for testing workstation and buffering workstation PLC I/O coupling and Initialization of workstations
+  [HWs/5hw.cif] Code for processing workstation PLC I/O coupling and Initialization of workstations
+  [HWs/6hw.cif] Code for sorting workstation PLC I/O coupling and Initialization of workstations
+  
+[maps.cif] Code for mapping inputs booleans to uncontrollable events, and supervisor states to outputs booleans, imports
+  [Maps/12map.cif] Code for distributing workstation and handling workstation
+  [Maps/34map.cif] Code for testing workstation and buffering workstation
+  [Maps/5map.cif] Code for processing workstation
+  [Maps/6map.cif] Code for sorting workstation
+  
+Output files:
 
+
+Executable files:
