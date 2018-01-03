@@ -38,6 +38,7 @@ end
 
 //Dynamics
 //drill dynamics, sensors are mutually exclusive
+//This is a more concise notation of the FSA in Figure 6.
 plant PDynamics:
     location: initial; marked;
         edge S_drill_up.u_on   when S_drill_down.Off;
