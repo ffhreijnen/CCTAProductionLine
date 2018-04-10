@@ -1,4 +1,4 @@
-import "../../Definitions/Definitions.cif";
+import "../Definitions/Definitions.cif";
 
 //PROCESSING
 
@@ -58,8 +58,7 @@ requirement PTimer.c_on    needs S_turntable.On;
 requirement PTimer.c_reset needs S_turntable.Off;
 
 //Turn table
-//The turn table is only allowed to enable at a valid positions.
-//This makes sure that pulsing works correct.
+//The turn table is only allowed to enable at a valid positions
 requirement A_turntable.c_on  needs S_turntable.On;
 requirement A_turntable.c_on needs PTimer.Timeout;
 

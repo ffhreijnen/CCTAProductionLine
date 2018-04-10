@@ -1,4 +1,4 @@
-import "../../Definitions/Definitions.cif";
+import "../Definitions/Definitions.cif";
 
 //DISTRIBUTING
 
