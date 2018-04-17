@@ -35,18 +35,7 @@ plant TDynamics:
         edge S_elevator_down.u_on when S_elevator_up.Off;
 end
 
-plant TTimer:
-    controllable c_on, c_reset; uncontrollable u_timeout;
-    location Off:
-        initial; marked;
-        edge c_on goto Running;
-    location Running:
-        edge u_timeout goto Timeout;
-        edge c_reset goto Off;
-    location Timeout:
-        marked;
-        edge c_reset goto Off;
-end
+TTimer: Timer();
 
 //Requirements
 //Initialization
@@ -135,18 +124,7 @@ A_separator      : TwoStateActuator(true);
 A_conveyerB      : TwoStateActuator(false);
 
 
-plant BTimer:
-    controllable c_on, c_reset; uncontrollable u_timeout;
-    location Off:
-        initial; marked;
-        edge c_on goto Running;
-    location Running:
-        edge u_timeout goto Timeout;
-        edge c_reset goto Off;
-    location Timeout:
-        marked;
-        edge c_reset goto Off;
-end
+BTimer: Timer();
 
 //Dynamics
 //elevator dynamics, sensors are mutually exclusive
