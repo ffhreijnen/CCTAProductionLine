@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<VarLinks>
+    <OwnerA Name="TIPC^Untitled1^Untitled1 Instance">
+        <OwnerB Name="TIID^Device 2 (EtherCAT)^Term 37 (EK1100)^Term 38 (EL2828)">
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_Sstartled" VarB="Channel 1^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_Sresetled" VarB="Channel 2^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_SledQ1"    VarB="Channel 3^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_SledQ2"    VarB="Channel 4^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_Sout4"     VarB="Channel 5^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_Sout5"     VarB="Channel 6^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_Sout6"     VarB="Channel 7^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_Sout7"     VarB="Channel 8^Output"/>
+        </OwnerB>
+        <OwnerB Name="TIID^Device 2 (EtherCAT)^Term 37 (EK1100)^Term 39 (EL1008)">
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sstartbutton" VarB="Channel 1^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sstopbutton"  VarB="Channel 2^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sautoswitch"  VarB="Channel 3^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sresetbutton" VarB="Channel 4^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sin4"         VarB="Channel 5^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sin5"         VarB="Channel 6^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sin6"         VarB="Channel 7^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_Sin7"         VarB="Channel 8^Input"/>
+        </OwnerB>
+        <OwnerB Name="TIID^Device 2 (EtherCAT)^Term 37 (EK1100)^Term 40 (EL2024)">
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_conveyer"       VarB="Channel 1^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_gate1"          VarB="Channel 2^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_gate2"          VarB="Channel 3^Output"/>
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_stopperretract" VarB="Channel 4^Output"/>
+        </OwnerB>
+        <OwnerB Name="TIID^Device 2 (EtherCAT)^Term 37 (EK1100)^Term 41 (EL2024)">
+            <Link VarA="PlcTask Outputs^MAIN.state0.dvar_M_HardwareMapS_out_a_sortingready" VarB="Channel 4^Output"/>
+        </OwnerB>
+        <OwnerB Name="TIID^Device 2 (EtherCAT)^Term 37 (EK1100)^Term 42 (EL1004)">
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_product"   VarB="Channel 1^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_inductive" VarB="Channel 2^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_optical"   VarB="Channel 3^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_slidefull" VarB="Channel 4^Input"/>
+        </OwnerB>
+        <OwnerB Name="TIID^Device 2 (EtherCAT)^Term 37 (EK1100)^Term 43 (EL1004)">
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_gate1_opened" VarB="Channel 1^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_gate1_closed" VarB="Channel 2^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_gate2_opened" VarB="Channel 3^Input"/>
+            <Link VarA="PlcTask Inputs^INPUTS.ivar_s_gate2_closed" VarB="Channel 4^Input"/>
+        </OwnerB>
+    </OwnerA>
+</VarLinks>

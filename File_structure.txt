@@ -1,23 +1,31 @@
 Input files:
-[plant.cif] Code for plant models, and requirement models, imports:
-  [Plants/12plant.cif] Code for distributing workstation and handling workstation plant models, and requirement models.
-  [Plants/34plant.cif] Code for testing workstation and buffering workstation plant models, and requirement models.
-  [Plants/5plant.cif] Code for processing workstation plant models, and requirement models.
-  [Plants/6plant.cif] Code for sorting workstation and handling workstation plant models, and requirement models
+[plant_requirements.cif] Code for plant models, and requirement models, imports:
+  [Plants_requirements/12plant_requirements.cif] Code for distributing workstation and handling workstation plant models, and requirement models.
+  [Plants_requirements/34plant_requirements.cif] Code for testing workstation and buffering workstation plant models, and requirement models.
+  [Plants_requirements/5plant_requirements.cif]  Code for processing workstation plant models, and requirement models.
+  [Plants_requirements/6plant_requirements.cif]  Code for sorting workstation and handling workstation plant models, and requirement models
   
 [hw.cif] Code for PLC I/O coupling and Initialization of workstations, imports:
   [HWs/12hw.cif] Code for distributing workstation and handling workstation PLC I/O coupling and Initialization of workstations
   [HWs/34hw.cif] Code for testing workstation and buffering workstation PLC I/O coupling and Initialization of workstations
-  [HWs/5hw.cif] Code for processing workstation PLC I/O coupling and Initialization of workstations
-  [HWs/6hw.cif] Code for sorting workstation PLC I/O coupling and Initialization of workstations
+  [HWs/5hw.cif]  Code for processing workstation PLC I/O coupling and Initialization of workstations
+  [HWs/6hw.cif]  Code for sorting workstation PLC I/O coupling and Initialization of workstations
   
 [maps.cif] Code for mapping inputs booleans to uncontrollable events, and supervisor states to outputs booleans, imports
   [Maps/12map.cif] Code for distributing workstation and handling workstation
   [Maps/34map.cif] Code for testing workstation and buffering workstation
-  [Maps/5map.cif] Code for processing workstation
-  [Maps/6map.cif] Code for sorting workstation
+  [Maps/5map.cif]  Code for processing workstation
+  [Maps/6map.cif]  Code for sorting workstation
   
-Output files:
+[IOmappings.xml] maps PLC variables to IO of the PLC
 
+[Definitions/Definitions.cif] Templates for the plant model
+
+Output files:
+[generated_files/Supervisor.cif] Synthesized supervisor, using [Synthesis.tooldef2], from [plant_requirements.cif]
+[generated_files/ctrl_hw.cif]    Merge of the supervisor and the Hardware mapping, using [product_line_plc_gen.tooldef2]
+[generated_files/controller.xml] PLC open controller format, using [product_line_plc_gen.tooldef2]
 
 Executable files:
+[Synthesis.tooldef2] Execute to synthesise [generated_files/Supervisor.cif] from [Plant_requirements.cif].
+[product_line_plc_gen.tooldef2] Execute to merge [generated_files/supervisor.cif] and [hw.cif], remove the algebraic variables, and to generate [generated_files/controller.xml].

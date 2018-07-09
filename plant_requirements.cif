@@ -1,8 +1,7 @@
-import "Plants/12plant.cif";
-import "Plants/34plant.cif";
-import "Plants/5plant.cif";
-import "Plants/6plant.cif";
-
+import "Plants_requirements/12plant_requirements.cif";
+import "Plants_requirements/34plant_requirements.cif";
+import "Plants_requirements/5plant_requirements.cif";
+import "Plants_requirements/6plant_requirements.cif";
 
 //Testing - Handling combination
 

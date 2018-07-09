@@ -1,0 +1,2315 @@
+input bool s_Dstartbutton;
+input bool s_Dstopbutton;
+input bool s_Dresetbutton;
+input bool s_Dautoswitch;
+input bool s_Din4;
+input bool s_Din5;
+input bool s_Din6;
+input bool s_Din7;
+input bool s_pusher1_in;
+input bool s_pusher1_out;
+input bool s_stack1filled;
+input bool s_product1;
+input bool s_pusher2_in;
+input bool s_pusher2_out;
+input bool s_stack2filled;
+input bool s_product2;
+input bool s_pusher3_in;
+input bool s_pusher3_out;
+input bool s_stack3filled;
+input bool s_product3;
+input bool s_handlingbusy;
+input bool s_Hstartbutton;
+input bool s_Hstopbutton;
+input bool s_Hresetbutton;
+input bool s_Hautoswitch;
+input bool s_Hin4;
+input bool s_Hin5;
+input bool s_Hin6;
+input bool s_Hin7;
+input bool s_xpos_at1;
+input bool s_xpos_at2;
+input bool s_xpos_at3;
+input bool s_xpos_atdrop;
+input bool s_zpos_atup;
+input bool s_zpos_atdown;
+input bool s_gripper;
+input bool s_transfer_atpickup;
+input bool s_transfer_atdrop;
+input bool s_transfer_athalfway;
+input bool s_vacuum;
+input bool s_product4;
+input bool s_testingbusy;
+input bool s_Tstartbutton;
+input bool s_Tstopbutton;
+input bool s_Tautoswitch;
+input bool s_Tresetbutton;
+input bool s_Tin4;
+input bool s_Tin5;
+input bool s_Tin6;
+input bool s_Tin7;
+input bool s_elevator_up;
+input bool s_elevator_down;
+input bool s_pusher;
+input bool s_opticalT;
+input bool s_capacitive;
+input bool s_reflective;
+input bool s_productheight;
+input bool s_bufferingbusy;
+input bool s_Bstartbutton;
+input bool s_Bstopbutton;
+input bool s_Bautoswitch;
+input bool s_Bresetbutton;
+input bool s_Bin4;
+input bool s_Bin5;
+input bool s_Bin6;
+input bool s_Bin7;
+input bool s_atin;
+input bool s_atseparator;
+input bool s_atend;
+input bool s_separator_opened;
+input bool s_separator_closed;
+input bool s_processingbusy;
+input bool s_Pstartbutton;
+input bool s_Pstopbutton;
+input bool s_Pautoswitch;
+input bool s_Presetbutton;
+input bool s_Pin4;
+input bool s_Pin5;
+input bool s_Pin6;
+input bool s_Pin7;
+input bool s_atinput;
+input bool s_attest;
+input bool s_atdrill;
+input bool s_atexit;
+input bool s_atspare;
+input bool s_clamp;
+input bool s_test_ok;
+input bool s_drill_up;
+input bool s_drill_down;
+input bool s_turntable;
+input bool s_sortingbusy;
+input bool s_Sstartbutton;
+input bool s_Sstopbutton;
+input bool s_Sautoswitch;
+input bool s_Sresetbutton;
+input bool s_Sin4;
+input bool s_Sin5;
+input bool s_Sin6;
+input bool s_Sin7;
+input bool s_product;
+input bool s_inductive;
+input bool s_optical;
+input bool s_slidefull;
+input bool s_gate1_opened;
+input bool s_gate1_closed;
+input bool s_gate2_opened;
+input bool s_gate2_closed;
+automaton BoolToEventsDH:
+  location:
+    initial;
+    edge S_pusher1_in.u_on when s_pusher1_in;
+    edge S_pusher1_in.u_off when not s_pusher1_in;
+    edge S_pusher1_out.u_on when s_pusher1_out;
+    edge S_pusher1_out.u_off when not s_pusher1_out;
+    edge S_stack1_filled.u_on when s_stack1filled;
+    edge S_stack1_filled.u_off when not s_stack1filled;
+    edge S_product1.u_on when s_product1;
+    edge S_product1.u_off when not s_product1;
+    edge S_pusher2_in.u_on when s_pusher2_in;
+    edge S_pusher2_in.u_off when not s_pusher2_in;
+    edge S_pusher2_out.u_on when s_pusher2_out;
+    edge S_pusher2_out.u_off when not s_pusher2_out;
+    edge S_stack2_filled.u_on when s_stack2filled;
+    edge S_stack2_filled.u_off when not s_stack2filled;
+    edge S_product2.u_on when s_product2;
+    edge S_product2.u_off when not s_product2;
+    edge S_pusher3_in.u_on when s_pusher3_in;
+    edge S_pusher3_in.u_off when not s_pusher3_in;
+    edge S_pusher3_out.u_on when s_pusher3_out;
+    edge S_pusher3_out.u_off when not s_pusher3_out;
+    edge S_stack3_filled.u_on when s_stack3filled;
+    edge S_stack3_filled.u_off when not s_stack3filled;
+    edge S_product3.u_on when s_product3;
+    edge S_product3.u_off when not s_product3;
+    edge S_handlingbusy.u_on when s_handlingbusy;
+    edge S_handlingbusy.u_off when not s_handlingbusy;
+    edge S_Dinitialized.u_on when HardwareMapDH.initialized;
+    edge S_Dinitialized.u_off when not HardwareMapDH.initialized;
+    edge S_product1.u_on when s_product1;
+    edge S_product1.u_off when not s_product1;
+    edge S_product2.u_on when s_product2;
+    edge S_product2.u_off when not s_product2;
+    edge S_product3.u_on when s_product3;
+    edge S_product3.u_off when not s_product3;
+    edge S_xpos_at1.u_on when s_xpos_at1;
+    edge S_xpos_at1.u_off when not s_xpos_at1;
+    edge S_xpos_at2.u_on when s_xpos_at2;
+    edge S_xpos_at2.u_off when not s_xpos_at2;
+    edge S_xpos_at3.u_on when s_xpos_at3;
+    edge S_xpos_at3.u_off when not s_xpos_at3;
+    edge S_xpos_atdrop.u_on when s_xpos_atdrop;
+    edge S_xpos_atdrop.u_off when not s_xpos_atdrop;
+    edge S_zpos_atup.u_on when s_zpos_atup;
+    edge S_zpos_atup.u_off when not s_zpos_atup;
+    edge S_zpos_atdown.u_on when s_zpos_atdown;
+    edge S_zpos_atdown.u_off when not s_zpos_atdown;
+    edge S_gripper.u_on when s_gripper;
+    edge S_gripper.u_off when not s_gripper;
+    edge S_transfer_atpickup.u_on when s_transfer_atpickup;
+    edge S_transfer_atpickup.u_off when not s_transfer_atpickup;
+    edge S_transfer_atdrop.u_on when s_transfer_atdrop;
+    edge S_transfer_atdrop.u_off when not s_transfer_atdrop;
+    edge S_transfer_athalfway.u_on when s_transfer_athalfway;
+    edge S_transfer_athalfway.u_off when not s_transfer_athalfway;
+    edge S_vacuum.u_on when s_vacuum;
+    edge S_vacuum.u_off when not s_vacuum;
+    edge S_product4.u_on when s_product4;
+    edge S_product4.u_off when not s_product4;
+    edge S_testingbusy.u_on when s_testingbusy;
+    edge S_testingbusy.u_off when not s_testingbusy;
+    edge S_Hinitialized.u_on when HardwareMapDH.initialized;
+    edge S_Hinitialized.u_off when not HardwareMapDH.initialized;
+end
+automaton BoolToEventsTB:
+  location:
+    initial;
+    edge S_elevator_up.u_on when s_elevator_up;
+    edge S_elevator_up.u_off when not s_elevator_up;
+    edge S_elevator_down.u_on when s_elevator_down;
+    edge S_elevator_down.u_off when not s_elevator_down;
+    edge S_pusher.u_on when s_pusher;
+    edge S_pusher.u_off when not s_pusher;
+    edge S_opticalT.u_on when s_opticalT;
+    edge S_opticalT.u_off when not s_opticalT;
+    edge S_capacitive.u_on when s_capacitive;
+    edge S_capacitive.u_off when not s_capacitive;
+    edge S_reflective.u_on when s_reflective;
+    edge S_reflective.u_off when not s_reflective;
+    edge S_productheight.u_on when s_productheight;
+    edge S_productheight.u_off when not s_productheight;
+    edge S_bufferingbusy.u_on when s_bufferingbusy;
+    edge S_bufferingbusy.u_off when not s_bufferingbusy;
+    edge S_Tinitialized.u_on when HardwareMapTB.initialized;
+    edge S_Tinitialized.u_off when not HardwareMapTB.initialized;
+    edge S_atin.u_on when s_atin;
+    edge S_atin.u_off when not s_atin;
+    edge S_atseparator.u_on when s_atseparator;
+    edge S_atseparator.u_off when not s_atseparator;
+    edge S_atend.u_on when s_atend;
+    edge S_atend.u_off when not s_atend;
+    edge S_separator_opened.u_on when s_separator_opened;
+    edge S_separator_opened.u_off when not s_separator_opened;
+    edge S_separator_closed.u_on when s_separator_closed;
+    edge S_separator_closed.u_off when not s_separator_closed;
+    edge S_processingbusy.u_on when s_processingbusy;
+    edge S_processingbusy.u_off when not s_processingbusy;
+    edge S_Binitialized.u_on when HardwareMapTB.initialized;
+    edge S_Binitialized.u_off when not HardwareMapTB.initialized;
+end
+plant automaton TTimer1:
+  cont t = 0.0 der if Running: 1.0 else 0.0 end;
+  location Off:
+    initial;
+    marked;
+    edge TTimer.c_on goto Running;
+  location Running:
+    edge TTimer.u_timeout when t > 0.5 goto Timeout;
+    edge TTimer.c_reset do t := 0.0 goto Off;
+  location Timeout:
+    edge TTimer.c_reset do t := 0.0 goto Off;
+end
+plant automaton BTimer1:
+  cont t = 0.0 der if Running: 1.0 else 0.0 end;
+  location Off:
+    initial;
+    marked;
+    edge BTimer.c_on goto Running;
+  location Running:
+    edge BTimer.u_timeout when t > 0.5 goto Timeout;
+    edge BTimer.c_reset do t := 0.0 goto Off;
+  location Timeout:
+    edge BTimer.c_reset do t := 0.0 goto Off;
+end
+plant automaton Timer1:
+  cont t = 0.0 der if Running: 1.0 else 0.0 end;
+  location Off:
+    initial;
+    marked;
+    edge Timer.c_on goto Running;
+  location Running:
+    edge Timer.u_timeout when t > 0.5 goto Timeout;
+    edge Timer.c_reset do t := 0.0 goto Off;
+  location Timeout:
+    edge Timer.c_reset do t := 0.0 goto Off;
+end
+automaton BoolToEventsP:
+  location:
+    initial;
+    edge S_atinput.u_on when s_atinput;
+    edge S_atinput.u_off when not s_atinput;
+    edge S_attest.u_on when s_attest;
+    edge S_attest.u_off when not s_attest;
+    edge S_atdrill.u_on when s_atdrill;
+    edge S_atdrill.u_off when not s_atdrill;
+    edge S_atexit.u_on when s_atexit;
+    edge S_atexit.u_off when not s_atexit;
+    edge S_atspare.u_on when s_atspare;
+    edge S_atspare.u_off when not s_atspare;
+    edge S_clamp.u_on when s_clamp;
+    edge S_clamp.u_off when not s_clamp;
+    edge S_test_ok.u_on when s_test_ok;
+    edge S_test_ok.u_off when not s_test_ok;
+    edge S_drill_up.u_on when s_drill_up;
+    edge S_drill_up.u_off when not s_drill_up;
+    edge S_drill_down.u_on when s_drill_down;
+    edge S_drill_down.u_off when not s_drill_down;
+    edge S_turntable.u_on when s_turntable;
+    edge S_turntable.u_off when not s_turntable;
+    edge S_sortingbusy.u_on when s_sortingbusy;
+    edge S_sortingbusy.u_off when not s_sortingbusy;
+    edge S_Pinitialized.u_on when HardwareMapP.initialized;
+    edge S_Pinitialized.u_off when not HardwareMapP.initialized;
+end
+plant automaton STimer1:
+  cont t = 0.0 der if Running: 1.0 else 0.0 end;
+  location Off:
+    initial;
+    marked;
+    edge STimer.c_on goto Running;
+  location Running:
+    edge STimer.u_timeout when t > 0.5 goto Timeout;
+    edge STimer.c_reset do t := 0.0 goto Off;
+  location Timeout:
+    edge STimer.c_reset do t := 0.0 goto Off;
+end
+automaton BoolToEventsS:
+  location:
+    initial;
+    edge S_product.u_on when s_product;
+    edge S_product.u_off when not s_product;
+    edge S_inductive.u_on when s_inductive;
+    edge S_inductive.u_off when not s_inductive;
+    edge S_optical.u_on when s_optical;
+    edge S_optical.u_off when not s_optical;
+    edge S_slidefull.u_on when s_slidefull;
+    edge S_slidefull.u_off when not s_slidefull;
+    edge S_gate1_opened.u_on when s_gate1_opened;
+    edge S_gate1_opened.u_off when not s_gate1_opened;
+    edge S_gate1_closed.u_on when s_gate1_closed;
+    edge S_gate1_closed.u_off when not s_gate1_closed;
+    edge S_gate2_opened.u_on when s_gate2_opened;
+    edge S_gate2_opened.u_off when not s_gate2_opened;
+    edge S_gate2_closed.u_on when s_gate2_closed;
+    edge S_gate2_closed.u_off when not s_gate2_closed;
+    edge S_Sinitialized.u_on when HardwareMapS.initialized;
+    edge S_Sinitialized.u_off when not HardwareMapS.initialized;
+end
+group S_product1:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_product2:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_product3:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_pusher1_in:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_pusher1_out:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_stack1_filled:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_pusher2_in:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_pusher2_out:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_stack2_filled:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_pusher3_in:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_pusher3_out:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_stack3_filled:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_Dinitialized:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_handlingbusy:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group A_pusher1:
+  controllable c_on;
+  controllable c_off;
+end
+group A_pusher2:
+  controllable c_on;
+  controllable c_off;
+end
+group A_pusher3:
+  controllable c_on;
+  controllable c_off;
+end
+group S_product4:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_xpos_at1:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_xpos_at2:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_xpos_at3:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_xpos_atdrop:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_zpos_atup:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_zpos_atdown:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_gripper:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_transfer_atpickup:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_transfer_atdrop:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_transfer_athalfway:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_vacuum:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_Hinitialized:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_testingbusy:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group A_x2distributing:
+  controllable c_on;
+  controllable c_off;
+end
+group A_x2testing:
+  controllable c_on;
+  controllable c_off;
+end
+group A_zdown:
+  controllable c_on;
+  controllable c_off;
+end
+group A_gripperclose:
+  controllable c_on;
+  controllable c_off;
+end
+group A_transfer2pickpos:
+  controllable c_on;
+  controllable c_off;
+end
+group A_transfer2droppos:
+  controllable c_on;
+  controllable c_off;
+end
+group A_vacuum:
+  controllable c_on;
+  controllable c_off;
+end
+group A_ejectpulse:
+  controllable c_on;
+  controllable c_off;
+end
+group A_handlingready:
+  controllable c_on;
+  controllable c_off;
+end
+group S_elevator_up:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_elevator_down:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_pusher:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_opticalT:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_capacitive:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_reflective:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_productheight:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_bufferingbusy:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_Tinitialized:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group A_elevator_up:
+  controllable c_on;
+  controllable c_off;
+end
+group A_elevator_down:
+  controllable c_on;
+  controllable c_off;
+end
+group A_pusher:
+  controllable c_on;
+  controllable c_off;
+end
+group A_airslide:
+  controllable c_on;
+  controllable c_off;
+end
+group A_testingready:
+  controllable c_on;
+  controllable c_off;
+end
+group TTimer:
+  controllable c_on;
+  controllable c_reset;
+  uncontrollable u_timeout;
+end
+group S_atin:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_atseparator:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_atend:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_separator_opened:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_separator_closed:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_processingbusy:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_Binitialized:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group A_separator:
+  controllable c_on;
+  controllable c_off;
+end
+group A_conveyerB:
+  controllable c_on;
+  controllable c_off;
+end
+group A_bufferingready:
+  controllable c_on;
+  controllable c_off;
+end
+group BTimer:
+  controllable c_on;
+  controllable c_reset;
+  uncontrollable u_timeout;
+end
+group S_atinput:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_attest:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_atdrill:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_atexit:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_atspare:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_clamp:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_test_ok:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_drill_up:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_drill_down:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_turntable:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_sortingbusy:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_Pinitialized:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group A_drill:
+  controllable c_on;
+  controllable c_off;
+end
+group A_turntable:
+  controllable c_on;
+  controllable c_off;
+end
+group A_drilldown:
+  controllable c_on;
+  controllable c_off;
+end
+group A_drillup:
+  controllable c_on;
+  controllable c_off;
+end
+group A_clamp:
+  controllable c_on;
+  controllable c_off;
+end
+group A_tester:
+  controllable c_on;
+  controllable c_off;
+end
+group A_eject:
+  controllable c_on;
+  controllable c_off;
+end
+group A_processingready:
+  controllable c_on;
+  controllable c_off;
+end
+group Timer:
+  controllable c_on;
+  controllable c_reset;
+  uncontrollable u_timeout;
+end
+group S_product:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_inductive:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_optical:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_slidefull:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_gate1_opened:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_gate1_closed:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_gate2_opened:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_gate2_closed:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group S_Sinitialized:
+  uncontrollable u_on;
+  uncontrollable u_off;
+end
+group A_conveyer:
+  controllable c_on;
+  controllable c_off;
+end
+group A_gate1:
+  controllable c_on;
+  controllable c_off;
+end
+group A_gate2:
+  controllable c_on;
+  controllable c_off;
+end
+group A_stopperretract:
+  controllable c_on;
+  controllable c_off;
+end
+group A_sortingready:
+  controllable c_on;
+  controllable c_off;
+end
+group STimer:
+  controllable c_on;
+  controllable c_reset;
+  uncontrollable u_timeout;
+end
+group sup:
+  plant automaton S_product1:
+    location On:
+      initial false;
+      marked false;
+      edge .S_product1.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_product1.u_on goto On;
+  end
+  plant automaton S_product2:
+    location On:
+      initial false;
+      marked false;
+      edge .S_product2.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_product2.u_on goto On;
+  end
+  plant automaton S_product3:
+    location On:
+      initial false;
+      marked false;
+      edge .S_product3.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_product3.u_on goto On;
+  end
+  plant automaton S_pusher1_in:
+    location On:
+      initial;
+      marked;
+      edge .S_pusher1_in.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_pusher1_in.u_on goto On;
+  end
+  plant automaton S_pusher1_out:
+    location On:
+      initial false;
+      marked false;
+      edge .S_pusher1_out.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_pusher1_out.u_on goto On;
+  end
+  plant automaton S_stack1_filled:
+    location On:
+      initial;
+      marked;
+      edge .S_stack1_filled.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_stack1_filled.u_on goto On;
+  end
+  plant automaton S_pusher2_in:
+    location On:
+      initial;
+      marked;
+      edge .S_pusher2_in.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_pusher2_in.u_on goto On;
+  end
+  plant automaton S_pusher2_out:
+    location On:
+      initial false;
+      marked false;
+      edge .S_pusher2_out.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_pusher2_out.u_on goto On;
+  end
+  plant automaton S_stack2_filled:
+    location On:
+      initial;
+      marked;
+      edge .S_stack2_filled.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_stack2_filled.u_on goto On;
+  end
+  plant automaton S_pusher3_in:
+    location On:
+      initial;
+      marked;
+      edge .S_pusher3_in.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_pusher3_in.u_on goto On;
+  end
+  plant automaton S_pusher3_out:
+    location On:
+      initial false;
+      marked false;
+      edge .S_pusher3_out.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_pusher3_out.u_on goto On;
+  end
+  plant automaton S_stack3_filled:
+    location On:
+      initial;
+      marked;
+      edge .S_stack3_filled.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_stack3_filled.u_on goto On;
+  end
+  plant automaton S_Dinitialized:
+    location On:
+      initial false;
+      marked false;
+      edge .S_Dinitialized.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_Dinitialized.u_on goto On;
+  end
+  plant automaton S_handlingbusy:
+    location On:
+      initial;
+      marked;
+      edge .S_handlingbusy.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_handlingbusy.u_on goto On;
+  end
+  plant automaton A_pusher1:
+    location On:
+      initial false;
+      marked false;
+      edge .A_pusher1.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_pusher1.c_on goto On;
+  end
+  plant automaton A_pusher2:
+    location On:
+      initial false;
+      marked false;
+      edge .A_pusher2.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_pusher2.c_on goto On;
+  end
+  plant automaton A_pusher3:
+    location On:
+      initial false;
+      marked false;
+      edge .A_pusher3.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_pusher3.c_on goto On;
+  end
+  plant automaton DDynamics1:
+    location:
+      initial;
+      marked;
+      edge .S_pusher1_in.u_on when S_pusher1_out.Off;
+      edge .S_pusher1_out.u_on when S_pusher1_in.Off;
+  end
+  plant automaton DDynamics2:
+    location:
+      initial;
+      marked;
+      edge .S_pusher2_in.u_on when S_pusher2_out.Off;
+      edge .S_pusher2_out.u_on when S_pusher2_in.Off;
+  end
+  plant automaton DDynamics3:
+    location:
+      initial;
+      marked;
+      edge .S_pusher3_in.u_on when S_pusher3_out.Off;
+      edge .S_pusher3_out.u_on when S_pusher3_in.Off;
+  end
+  plant automaton S_product4:
+    location On:
+      initial false;
+      marked false;
+      edge .S_product4.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_product4.u_on goto On;
+  end
+  plant automaton S_xpos_at1:
+    location On:
+      initial false;
+      marked false;
+      edge .S_xpos_at1.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_xpos_at1.u_on goto On;
+  end
+  plant automaton S_xpos_at2:
+    location On:
+      initial false;
+      marked false;
+      edge .S_xpos_at2.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_xpos_at2.u_on goto On;
+  end
+  plant automaton S_xpos_at3:
+    location On:
+      initial false;
+      marked false;
+      edge .S_xpos_at3.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_xpos_at3.u_on goto On;
+  end
+  plant automaton S_xpos_atdrop:
+    location On:
+      initial;
+      marked;
+      edge .S_xpos_atdrop.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_xpos_atdrop.u_on goto On;
+  end
+  plant automaton S_zpos_atup:
+    location On:
+      initial;
+      marked;
+      edge .S_zpos_atup.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_zpos_atup.u_on goto On;
+  end
+  plant automaton S_zpos_atdown:
+    location On:
+      initial false;
+      marked false;
+      edge .S_zpos_atdown.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_zpos_atdown.u_on goto On;
+  end
+  plant automaton S_gripper:
+    location On:
+      initial false;
+      marked false;
+      edge .S_gripper.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_gripper.u_on goto On;
+  end
+  plant automaton S_transfer_atpickup:
+    location On:
+      initial false;
+      marked false;
+      edge .S_transfer_atpickup.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_transfer_atpickup.u_on goto On;
+  end
+  plant automaton S_transfer_atdrop:
+    location On:
+      initial false;
+      marked false;
+      edge .S_transfer_atdrop.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_transfer_atdrop.u_on goto On;
+  end
+  plant automaton S_transfer_athalfway:
+    location On:
+      initial;
+      marked;
+      edge .S_transfer_athalfway.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_transfer_athalfway.u_on goto On;
+  end
+  plant automaton S_vacuum:
+    location On:
+      initial false;
+      marked false;
+      edge .S_vacuum.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_vacuum.u_on goto On;
+  end
+  plant automaton S_Hinitialized:
+    location On:
+      initial false;
+      marked false;
+      edge .S_Hinitialized.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_Hinitialized.u_on goto On;
+  end
+  plant automaton S_testingbusy:
+    location On:
+      initial;
+      marked;
+      edge .S_testingbusy.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_testingbusy.u_on goto On;
+  end
+  plant automaton A_x2distributing:
+    location On:
+      initial;
+      marked;
+      edge .A_x2distributing.c_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .A_x2distributing.c_on goto On;
+  end
+  plant automaton A_x2testing:
+    location On:
+      initial;
+      marked;
+      edge .A_x2testing.c_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .A_x2testing.c_on goto On;
+  end
+  plant automaton A_zdown:
+    location On:
+      initial false;
+      marked false;
+      edge .A_zdown.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_zdown.c_on goto On;
+  end
+  plant automaton A_gripperclose:
+    location On:
+      initial false;
+      marked false;
+      edge .A_gripperclose.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_gripperclose.c_on goto On;
+  end
+  plant automaton A_transfer2pickpos:
+    location On:
+      initial false;
+      marked;
+      edge .A_transfer2pickpos.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_transfer2pickpos.c_on goto On;
+  end
+  plant automaton A_transfer2droppos:
+    location On:
+      initial false;
+      marked;
+      edge .A_transfer2droppos.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_transfer2droppos.c_on goto On;
+  end
+  plant automaton A_vacuum:
+    location On:
+      initial false;
+      marked false;
+      edge .A_vacuum.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_vacuum.c_on goto On;
+  end
+  plant automaton A_ejectpulse:
+    location On:
+      initial false;
+      marked false;
+      edge .A_ejectpulse.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_ejectpulse.c_on goto On;
+  end
+  plant automaton A_handlingready:
+    location On:
+      initial false;
+      marked false;
+      edge .A_handlingready.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_handlingready.c_on goto On;
+  end
+  plant automaton HDynamics1:
+    location:
+      initial;
+      marked;
+      edge .S_xpos_at1.u_on when S_xpos_at2.Off and S_xpos_at3.Off and S_xpos_atdrop.Off;
+      edge .S_xpos_at2.u_on when S_xpos_at1.Off and S_xpos_at3.Off and S_xpos_atdrop.Off;
+      edge .S_xpos_at3.u_on when S_xpos_at1.Off and S_xpos_at2.Off and S_xpos_atdrop.Off;
+      edge .S_xpos_atdrop.u_on when S_xpos_at1.Off and S_xpos_at2.Off and S_xpos_at3.Off;
+  end
+  plant automaton HDynamics3:
+    location:
+      initial;
+      marked;
+      edge .S_zpos_atup.u_on when S_zpos_atdown.Off;
+      edge .S_zpos_atdown.u_on when S_zpos_atup.Off;
+  end
+  plant automaton HDynamics2:
+    location:
+      initial;
+      marked;
+      edge .S_transfer_atpickup.u_on when S_transfer_atdrop.Off and S_transfer_athalfway.Off;
+      edge .S_transfer_atdrop.u_on when S_transfer_atpickup.Off and S_transfer_athalfway.Off;
+      edge .S_transfer_athalfway.u_on when S_transfer_atdrop.Off and S_transfer_atpickup.Off;
+  end
+  plant automaton S_elevator_up:
+    location On:
+      initial false;
+      marked false;
+      edge .S_elevator_up.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_elevator_up.u_on goto On;
+  end
+  plant automaton S_elevator_down:
+    location On:
+      initial;
+      marked;
+      edge .S_elevator_down.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_elevator_down.u_on goto On;
+  end
+  plant automaton S_pusher:
+    location On:
+      initial false;
+      marked false;
+      edge .S_pusher.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_pusher.u_on goto On;
+  end
+  plant automaton S_opticalT:
+    location On:
+      initial false;
+      marked false;
+      edge .S_opticalT.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_opticalT.u_on goto On;
+  end
+  plant automaton S_capacitive:
+    location On:
+      initial false;
+      marked false;
+      edge .S_capacitive.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_capacitive.u_on goto On;
+  end
+  plant automaton S_reflective:
+    location On:
+      initial false;
+      marked false;
+      edge .S_reflective.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_reflective.u_on goto On;
+  end
+  plant automaton S_productheight:
+    location On:
+      initial false;
+      marked false;
+      edge .S_productheight.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_productheight.u_on goto On;
+  end
+  plant automaton S_bufferingbusy:
+    location On:
+      initial;
+      marked;
+      edge .S_bufferingbusy.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_bufferingbusy.u_on goto On;
+  end
+  plant automaton S_Tinitialized:
+    location On:
+      initial false;
+      marked false;
+      edge .S_Tinitialized.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_Tinitialized.u_on goto On;
+  end
+  plant automaton A_elevator_up:
+    location On:
+      initial false;
+      marked false;
+      edge .A_elevator_up.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_elevator_up.c_on goto On;
+  end
+  plant automaton A_elevator_down:
+    location On:
+      initial;
+      marked;
+      edge .A_elevator_down.c_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .A_elevator_down.c_on goto On;
+  end
+  plant automaton A_pusher:
+    location On:
+      initial false;
+      marked false;
+      edge .A_pusher.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_pusher.c_on goto On;
+  end
+  plant automaton A_airslide:
+    location On:
+      initial false;
+      marked false;
+      edge .A_airslide.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_airslide.c_on goto On;
+  end
+  plant automaton A_testingready:
+    location On:
+      initial false;
+      marked false;
+      edge .A_testingready.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_testingready.c_on goto On;
+  end
+  plant automaton TDynamics:
+    location:
+      initial;
+      marked;
+      edge .S_elevator_up.u_on when S_elevator_down.Off;
+      edge .S_elevator_down.u_on when S_elevator_up.Off;
+  end
+  plant automaton TTimer:
+    location Off:
+      initial;
+      marked;
+      edge .TTimer.c_on goto Running;
+    location Running:
+      edge .TTimer.u_timeout goto Timeout;
+      edge .TTimer.c_reset goto Off;
+    location Timeout:
+      marked;
+      edge .TTimer.c_reset goto Off;
+  end
+  supervisor automaton PusherLift:
+    location One:
+      initial;
+      marked;
+      edge .A_elevator_down.c_off goto Two;
+    location Two:
+      edge .A_pusher.c_on goto Three;
+    location Three:
+      edge .A_pusher.c_off goto Four;
+    location Four:
+      edge .A_elevator_down.c_on goto One;
+  end
+  plant automaton S_atin:
+    location On:
+      initial false;
+      marked false;
+      edge .S_atin.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_atin.u_on goto On;
+  end
+  plant automaton S_atseparator:
+    location On:
+      initial false;
+      marked false;
+      edge .S_atseparator.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_atseparator.u_on goto On;
+  end
+  plant automaton S_atend:
+    location On:
+      initial false;
+      marked false;
+      edge .S_atend.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_atend.u_on goto On;
+  end
+  plant automaton S_separator_opened:
+    location On:
+      initial false;
+      marked false;
+      edge .S_separator_opened.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_separator_opened.u_on goto On;
+  end
+  plant automaton S_separator_closed:
+    location On:
+      initial;
+      marked;
+      edge .S_separator_closed.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_separator_closed.u_on goto On;
+  end
+  plant automaton S_processingbusy:
+    location On:
+      initial;
+      marked;
+      edge .S_processingbusy.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_processingbusy.u_on goto On;
+  end
+  plant automaton S_Binitialized:
+    location On:
+      initial false;
+      marked false;
+      edge .S_Binitialized.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_Binitialized.u_on goto On;
+  end
+  plant automaton A_separator:
+    location On:
+      initial;
+      marked;
+      edge .A_separator.c_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .A_separator.c_on goto On;
+  end
+  plant automaton A_conveyerB:
+    location On:
+      initial false;
+      marked false;
+      edge .A_conveyerB.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_conveyerB.c_on goto On;
+  end
+  plant automaton A_bufferingready:
+    location On:
+      initial false;
+      marked false;
+      edge .A_bufferingready.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_bufferingready.c_on goto On;
+  end
+  plant automaton BTimer:
+    location Off:
+      initial;
+      marked;
+      edge .BTimer.c_on goto Running;
+    location Running:
+      edge .BTimer.u_timeout goto Timeout;
+      edge .BTimer.c_reset goto Off;
+    location Timeout:
+      marked;
+      edge .BTimer.c_reset goto Off;
+  end
+  plant automaton BDynamics:
+    location:
+      initial;
+      marked;
+      edge .S_separator_opened.u_on when S_separator_closed.Off;
+      edge .S_separator_closed.u_on when S_separator_opened.Off;
+  end
+  plant automaton S_atinput:
+    location On:
+      initial false;
+      marked false;
+      edge .S_atinput.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_atinput.u_on goto On;
+  end
+  plant automaton S_attest:
+    location On:
+      initial false;
+      marked false;
+      edge .S_attest.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_attest.u_on goto On;
+  end
+  plant automaton S_atdrill:
+    location On:
+      initial false;
+      marked false;
+      edge .S_atdrill.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_atdrill.u_on goto On;
+  end
+  plant automaton S_atexit:
+    location On:
+      initial false;
+      marked false;
+      edge .S_atexit.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_atexit.u_on goto On;
+  end
+  plant automaton S_atspare:
+    location On:
+      initial false;
+      marked false;
+      edge .S_atspare.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_atspare.u_on goto On;
+  end
+  plant automaton S_clamp:
+    location On:
+      initial false;
+      marked false;
+      edge .S_clamp.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_clamp.u_on goto On;
+  end
+  plant automaton S_test_ok:
+    location On:
+      initial false;
+      marked false;
+      edge .S_test_ok.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_test_ok.u_on goto On;
+  end
+  plant automaton S_drill_up:
+    location On:
+      initial;
+      marked;
+      edge .S_drill_up.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_drill_up.u_on goto On;
+  end
+  plant automaton S_drill_down:
+    location On:
+      initial false;
+      marked false;
+      edge .S_drill_down.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_drill_down.u_on goto On;
+  end
+  plant automaton S_turntable:
+    location On:
+      initial;
+      marked;
+      edge .S_turntable.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_turntable.u_on goto On;
+  end
+  plant automaton S_sortingbusy:
+    location On:
+      initial;
+      marked;
+      edge .S_sortingbusy.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_sortingbusy.u_on goto On;
+  end
+  plant automaton S_Pinitialized:
+    location On:
+      initial false;
+      marked false;
+      edge .S_Pinitialized.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_Pinitialized.u_on goto On;
+  end
+  plant automaton A_drill:
+    location On:
+      initial false;
+      marked false;
+      edge .A_drill.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_drill.c_on goto On;
+  end
+  plant automaton A_turntable:
+    location On:
+      initial false;
+      marked false;
+      edge .A_turntable.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_turntable.c_on goto On;
+  end
+  plant automaton A_drilldown:
+    location On:
+      initial false;
+      marked false;
+      edge .A_drilldown.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_drilldown.c_on goto On;
+  end
+  plant automaton A_drillup:
+    location On:
+      initial;
+      marked;
+      edge .A_drillup.c_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .A_drillup.c_on goto On;
+  end
+  plant automaton A_clamp:
+    location On:
+      initial false;
+      marked false;
+      edge .A_clamp.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_clamp.c_on goto On;
+  end
+  plant automaton A_tester:
+    location On:
+      initial false;
+      marked false;
+      edge .A_tester.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_tester.c_on goto On;
+  end
+  plant automaton A_eject:
+    location On:
+      initial false;
+      marked false;
+      edge .A_eject.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_eject.c_on goto On;
+  end
+  plant automaton A_processingready:
+    location On:
+      initial false;
+      marked false;
+      edge .A_processingready.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_processingready.c_on goto On;
+  end
+  plant automaton Timer:
+    location Off:
+      initial;
+      marked;
+      edge .Timer.c_on goto Running;
+    location Running:
+      edge .Timer.u_timeout goto Timeout;
+      edge .Timer.c_reset goto Off;
+    location Timeout:
+      edge .Timer.c_reset goto Off;
+  end
+  plant automaton PDynamics:
+    location:
+      initial;
+      marked;
+      edge .S_drill_up.u_on when S_drill_down.Off;
+      edge .S_drill_down.u_on when S_drill_up.Off;
+  end
+  supervisor automaton Tester:
+    location One:
+      initial;
+      marked;
+      edge .A_turntable.c_on;
+      edge .A_tester.c_on goto Two;
+    location Two:
+      edge .A_tester.c_off goto Three;
+    location Three:
+      edge .A_turntable.c_on goto One;
+  end
+  supervisor automaton ClampDrill:
+    location one:
+      initial;
+      marked;
+      edge .A_turntable.c_on;
+      edge .A_clamp.c_on goto two;
+    location two:
+      edge .A_drill.c_on goto three;
+    location three:
+      edge .A_drillup.c_off goto four;
+    location four:
+      edge .A_drilldown.c_on goto five;
+    location five:
+      edge .A_drilldown.c_off goto six;
+    location six:
+      edge .A_drillup.c_on goto seven;
+    location seven:
+      edge .A_drill.c_off goto eight;
+    location eight:
+      edge .A_clamp.c_off goto nine;
+    location nine:
+      edge .A_turntable.c_on goto one;
+  end
+  plant automaton S_product:
+    location On:
+      initial false;
+      marked false;
+      edge .S_product.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_product.u_on goto On;
+  end
+  plant automaton S_inductive:
+    location On:
+      initial false;
+      marked false;
+      edge .S_inductive.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_inductive.u_on goto On;
+  end
+  plant automaton S_optical:
+    location On:
+      initial false;
+      marked false;
+      edge .S_optical.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_optical.u_on goto On;
+  end
+  plant automaton S_slidefull:
+    location On:
+      initial false;
+      marked false;
+      edge .S_slidefull.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_slidefull.u_on goto On;
+  end
+  plant automaton S_gate1_opened:
+    location On:
+      initial;
+      marked;
+      edge .S_gate1_opened.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_gate1_opened.u_on goto On;
+  end
+  plant automaton S_gate1_closed:
+    location On:
+      initial false;
+      marked false;
+      edge .S_gate1_closed.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_gate1_closed.u_on goto On;
+  end
+  plant automaton S_gate2_opened:
+    location On:
+      initial;
+      marked;
+      edge .S_gate2_opened.u_off goto Off;
+    location Off:
+      initial not true;
+      marked not true;
+      edge .S_gate2_opened.u_on goto On;
+  end
+  plant automaton S_gate2_closed:
+    location On:
+      initial false;
+      marked false;
+      edge .S_gate2_closed.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_gate2_closed.u_on goto On;
+  end
+  plant automaton S_Sinitialized:
+    location On:
+      initial false;
+      marked false;
+      edge .S_Sinitialized.u_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .S_Sinitialized.u_on goto On;
+  end
+  plant automaton A_conveyer:
+    location On:
+      initial false;
+      marked false;
+      edge .A_conveyer.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_conveyer.c_on goto On;
+  end
+  plant automaton A_gate1:
+    location On:
+      initial false;
+      marked false;
+      edge .A_gate1.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_gate1.c_on goto On;
+  end
+  plant automaton A_gate2:
+    location On:
+      initial false;
+      marked false;
+      edge .A_gate2.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_gate2.c_on goto On;
+  end
+  plant automaton A_stopperretract:
+    location On:
+      initial false;
+      marked false;
+      edge .A_stopperretract.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_stopperretract.c_on goto On;
+  end
+  plant automaton A_sortingready:
+    location On:
+      initial false;
+      marked false;
+      edge .A_sortingready.c_off goto Off;
+    location Off:
+      initial;
+      marked;
+      edge .A_sortingready.c_on goto On;
+  end
+  plant automaton STimer:
+    location Off:
+      initial;
+      marked;
+      edge .STimer.c_on goto Running;
+    location Running:
+      edge .STimer.u_timeout goto Timeout;
+      edge .STimer.c_reset goto Off;
+    location Timeout:
+      edge .STimer.c_reset goto Off;
+  end
+  plant automaton SDynamics1:
+    location:
+      initial;
+      marked;
+      edge .S_gate1_opened.u_on when S_gate1_closed.Off;
+      edge .S_gate1_closed.u_on when S_gate1_opened.Off;
+  end
+  plant automaton SDynamics2:
+    location:
+      initial;
+      marked;
+      edge .S_gate2_opened.u_on when S_gate2_closed.Off;
+      edge .S_gate2_closed.u_on when S_gate2_opened.Off;
+  end
+  supervisor automaton sup:
+    alphabet .A_pusher1.c_off, .A_pusher1.c_on, .A_pusher2.c_off, .A_pusher2.c_on, .A_pusher3.c_off, .A_pusher3.c_on, .A_x2distributing.c_off, .A_x2distributing.c_on, .A_x2testing.c_off, .A_x2testing.c_on, .A_zdown.c_off, .A_zdown.c_on, .A_gripperclose.c_off, .A_gripperclose.c_on, .A_transfer2pickpos.c_off, .A_transfer2pickpos.c_on, .A_transfer2droppos.c_off, .A_transfer2droppos.c_on, .A_vacuum.c_off, .A_vacuum.c_on, .A_ejectpulse.c_off, .A_ejectpulse.c_on, .A_handlingready.c_off, .A_handlingready.c_on, .A_elevator_up.c_off, .A_elevator_up.c_on, .A_elevator_down.c_off, .A_elevator_down.c_on, .A_pusher.c_off, .A_pusher.c_on, .A_airslide.c_off, .A_airslide.c_on, .A_testingready.c_off, .A_testingready.c_on, .TTimer.c_on, .TTimer.c_reset, .A_separator.c_off, .A_separator.c_on, .A_conveyerB.c_off, .A_conveyerB.c_on, .A_bufferingready.c_off, .A_bufferingready.c_on, .BTimer.c_on, .BTimer.c_reset, .A_drill.c_off, .A_drill.c_on, .A_turntable.c_off, .A_turntable.c_on, .A_drilldown.c_off, .A_drilldown.c_on, .A_drillup.c_off, .A_drillup.c_on, .A_clamp.c_off, .A_clamp.c_on, .A_tester.c_off, .A_tester.c_on, .A_eject.c_off, .A_eject.c_on, .A_processingready.c_off, .A_processingready.c_on, .Timer.c_on, .Timer.c_reset, .A_conveyer.c_off, .A_conveyer.c_on, .A_gate1.c_off, .A_gate1.c_on, .A_gate2.c_off, .A_gate2.c_on, .A_stopperretract.c_off, .A_stopperretract.c_on, .A_sortingready.c_off, .A_sortingready.c_on, .STimer.c_on, .STimer.c_reset;
+    location:
+      initial;
+      marked;
+      edge .A_airslide.c_off when S_elevator_down.On and S_Tinitialized.On;
+      edge .A_airslide.c_on when S_pusher.On and (S_elevator_up.On and S_Tinitialized.On);
+      edge .A_bufferingready.c_off when S_Binitialized.On;
+      edge .A_bufferingready.c_on when false;
+      edge .A_clamp.c_off when S_drill_up.On and S_Pinitialized.On;
+      edge .A_clamp.c_on when A_turntable.Off and S_atdrill.On and (S_Pinitialized.On and (S_turntable.On and Timer.Timeout));
+      edge .A_conveyer.c_off when S_Sinitialized.On and S_slidefull.On;
+      edge .A_conveyer.c_on when S_product.On and S_Sinitialized.On;
+      edge .A_conveyerB.c_off when BTimer.Timeout and S_Binitialized.On;
+      edge .A_conveyerB.c_on when S_atin.On and S_Binitialized.On;
+      edge .A_drill.c_off when S_drill_down.On and S_Pinitialized.On;
+      edge .A_drill.c_on when S_clamp.On and (S_drill_up.On and S_Pinitialized.On);
+      edge .A_drilldown.c_off when S_drill_down.On;
+      edge .A_drilldown.c_on when S_drill_up.On and S_Pinitialized.On;
+      edge .A_drillup.c_off when S_drill_up.On and S_Pinitialized.On;
+      edge .A_drillup.c_on when S_drill_down.On;
+      edge .A_eject.c_off when A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On);
+      edge .A_eject.c_on when A_turntable.Off and S_atexit.On and (S_Pinitialized.On and (S_turntable.On and Timer.Timeout));
+      edge .A_ejectpulse.c_off when S_Hinitialized.On and S_vacuum.Off;
+      edge .A_ejectpulse.c_on when S_Hinitialized.On and (S_transfer_atdrop.On and S_vacuum.On);
+      edge .A_elevator_down.c_off when S_pusher.Off and (S_elevator_down.On and S_reflective.Off) and (S_capacitive.On and S_transfer_athalfway.On and (S_Tinitialized.On and TTimer.Timeout));
+      edge .A_elevator_down.c_on when A_elevator_up.Off and (S_opticalT.Off and S_pusher.Off) and (S_elevator_up.On and (S_Tinitialized.On and TTimer.Timeout));
+      edge .A_elevator_up.c_off when S_opticalT.Off and S_pusher.Off and (S_elevator_up.On and (S_Tinitialized.On and TTimer.Timeout));
+      edge .A_elevator_up.c_on when A_elevator_down.Off and S_pusher.Off and (S_elevator_down.On and S_reflective.Off) and (S_capacitive.On and S_transfer_athalfway.On and (S_Tinitialized.On and TTimer.Timeout));
+      edge .A_gate1.c_off when A_stopperretract.Off and (S_Sinitialized.On and S_slidefull.On);
+      edge .A_gate1.c_on when A_stopperretract.Off and S_inductive.Off and (S_optical.On and (S_Sinitialized.On and STimer.Timeout));
+      edge .A_gate2.c_off when A_stopperretract.Off and (S_Sinitialized.On and S_slidefull.On);
+      edge .A_gate2.c_on when A_stopperretract.Off and S_inductive.On and (S_optical.On and (S_Sinitialized.On and STimer.Timeout));
+      edge .A_gripperclose.c_off when S_Hinitialized.On and (S_xpos_atdrop.On and S_zpos_atdown.On);
+      edge .A_gripperclose.c_on when S_Hinitialized.On and (S_xpos_at3.On and S_zpos_atdown.On) or (S_Hinitialized.On and S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atdown.On) or S_Hinitialized.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atdown.On)));
+      edge .A_handlingready.c_off when S_Hinitialized.On;
+      edge .A_handlingready.c_on when false;
+      edge .A_processingready.c_off when S_Pinitialized.On;
+      edge .A_processingready.c_on when false;
+      edge .A_pusher.c_off when S_pusher.On and S_Tinitialized.On;
+      edge .A_pusher.c_on when S_elevator_up.On and S_Tinitialized.On;
+      edge .A_pusher1.c_off when S_Dinitialized.On and S_pusher1_out.On and (S_stack1_filled.On and S_product1.Off);
+      edge .A_pusher1.c_on when S_Dinitialized.On and (S_pusher1_in.On and S_product1.Off);
+      edge .A_pusher2.c_off when S_Dinitialized.On and S_pusher2_out.On and (S_product2.Off and S_stack2_filled.On);
+      edge .A_pusher2.c_on when S_Dinitialized.On and (S_pusher2_in.On and S_product2.Off);
+      edge .A_pusher3.c_off when S_Dinitialized.On and S_pusher3_out.On and (S_product3.Off and S_stack3_filled.On);
+      edge .A_pusher3.c_on when S_Dinitialized.On and (S_pusher3_in.On and S_product3.Off);
+      edge .A_separator.c_off when S_atinput.Off and S_atseparator.Off and (S_Binitialized.On and (S_separator_opened.On and S_turntable.On));
+      edge .A_separator.c_on when S_atseparator.On and (S_Binitialized.On and S_separator_closed.On);
+      edge .A_sortingready.c_off when S_Sinitialized.On;
+      edge .A_sortingready.c_on when false;
+      edge .A_stopperretract.c_off when S_Sinitialized.On and S_slidefull.On;
+      edge .A_stopperretract.c_on when S_Sinitialized.On and (S_slidefull.Off and STimer.Timeout);
+      edge .A_tester.c_off when S_Pinitialized.On and S_test_ok.On;
+      edge .A_tester.c_on when A_turntable.Off and S_attest.On and (S_Pinitialized.On and (S_turntable.On and Timer.Timeout));
+      edge .A_testingready.c_off when false;
+      edge .A_testingready.c_on when false;
+      edge .A_transfer2droppos.c_off when (S_Hinitialized.Off or S_elevator_down.Off or (S_capacitive.Off or (S_transfer_athalfway.On or S_transfer_atdrop.On))) and (S_Hinitialized.Off or S_elevator_down.Off or (S_capacitive.On or S_transfer_atdrop.On)) and ((S_Hinitialized.Off or S_elevator_down.On or (S_transfer_athalfway.On or S_transfer_atdrop.On)) and S_Hinitialized.On);
+      edge .A_transfer2droppos.c_on when A_transfer2pickpos.Off and (S_Hinitialized.On and S_elevator_down.On) and (S_capacitive.On and (S_transfer_atpickup.On and S_vacuum.On)) or A_transfer2pickpos.Off and (S_Hinitialized.On and S_elevator_down.On) and (S_capacitive.Off and (S_transfer_atpickup.On and S_vacuum.On)) or (A_transfer2pickpos.Off and (S_Hinitialized.On and S_elevator_down.On) and (S_capacitive.Off and S_transfer_atpickup.Off and (S_transfer_athalfway.On and S_vacuum.On)) or A_transfer2pickpos.Off and S_Hinitialized.On and (S_elevator_down.Off and (S_transfer_atpickup.On and S_vacuum.On)));
+      edge .A_transfer2pickpos.c_off when S_Hinitialized.On and S_transfer_atpickup.On or S_Hinitialized.On and S_transfer_atpickup.Off and (S_transfer_athalfway.On and S_product4.Off);
+      edge .A_transfer2pickpos.c_on when A_transfer2droppos.Off and S_Hinitialized.On and (S_transfer_athalfway.On and (S_transfer_atdrop.On and S_vacuum.Off)) or (A_transfer2droppos.Off and (S_Hinitialized.On and S_transfer_athalfway.On) and (S_transfer_atdrop.Off and S_product4.On and (S_xpos_at3.On and S_vacuum.Off)) or A_transfer2droppos.Off and S_Hinitialized.On and (S_transfer_athalfway.Off and (S_transfer_atdrop.On and S_vacuum.Off)));
+      edge .A_turntable.c_off when S_Pinitialized.On and S_turntable.Off;
+      edge .A_turntable.c_on when A_eject.Off and (S_atinput.On and S_clamp.Off) and (S_drill_up.On and S_Pinitialized.On and (S_turntable.On and Timer.Timeout));
+      edge .A_vacuum.c_off when S_Hinitialized.On and S_transfer_atdrop.On;
+      edge .A_vacuum.c_on when S_Hinitialized.On and S_transfer_atpickup.On;
+      edge .A_x2distributing.c_off when A_x2testing.On and (S_Hinitialized.On and S_transfer_athalfway.On) and (S_product4.On and S_gripper.On and (S_xpos_at2.On and S_zpos_atup.On)) or (A_x2testing.On and S_Hinitialized.On and (S_transfer_athalfway.On and S_product4.On) and (S_gripper.On and S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atup.On)) or A_x2testing.On and (S_Hinitialized.On and S_transfer_athalfway.On) and (S_product4.Off and S_gripper.On and (S_xpos_at3.On and S_zpos_atup.On))) or (A_x2testing.On and S_Hinitialized.On and (S_transfer_athalfway.On and S_product4.Off) and (S_gripper.On and S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atup.On)) or A_x2testing.On and S_Hinitialized.On and (S_transfer_athalfway.On and S_product4.Off) and (S_gripper.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atup.On))) or (A_x2testing.On and (S_Hinitialized.On and S_transfer_athalfway.Off) and (S_gripper.On and (S_xpos_at2.On and S_zpos_atup.On)) or A_x2testing.On and (S_Hinitialized.On and S_transfer_athalfway.Off) and (S_gripper.On and S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atup.On))));
+      edge .A_x2distributing.c_on when (S_Hinitialized.Off or S_transfer_athalfway.Off or (S_product4.Off or (S_xpos_at3.On or S_xpos_atdrop.On))) and (S_Hinitialized.Off or S_transfer_athalfway.Off or (S_product4.On or S_xpos_atdrop.On)) and ((S_Hinitialized.Off or S_transfer_athalfway.On or (S_xpos_at3.On or S_xpos_atdrop.On)) and S_Hinitialized.On);
+      edge .A_x2testing.c_off when A_x2distributing.On and S_Hinitialized.On and (S_product1.On and S_product2.On) and (S_product3.On and S_gripper.Off and (S_xpos_atdrop.On and S_zpos_atup.On)) or (A_x2distributing.On and S_Hinitialized.On and (S_product1.On and S_product2.On) and (S_product3.Off and S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On)) or A_x2distributing.On and S_Hinitialized.On and (S_product1.On and S_product2.On) and (S_product3.Off and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_atdrop.On and S_zpos_atup.On)))) or (A_x2distributing.On and S_Hinitialized.On and (S_product1.On and S_product2.Off) and (S_product3.On and S_gripper.Off and (S_xpos_at2.On and S_zpos_atup.On)) or (A_x2distributing.On and S_Hinitialized.On and (S_product1.On and S_product2.Off) and (S_product3.On and S_gripper.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_zpos_atup.On))) or A_x2distributing.On and S_Hinitialized.On and (S_product1.On and S_product2.Off) and (S_product3.Off and S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On)))) or (A_x2distributing.On and S_Hinitialized.On and (S_product1.On and S_product2.Off) and (S_product3.Off and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atup.On))) or (A_x2distributing.On and S_Hinitialized.On and (S_product1.On and (S_product2.Off and S_product3.Off)) and (S_gripper.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_zpos_atup.On))) or A_x2distributing.On and S_Hinitialized.On and (S_product1.Off and S_product2.On) and (S_product3.On and S_gripper.Off and (S_xpos_atdrop.On and S_zpos_atup.On))) or (A_x2distributing.On and S_Hinitialized.On and (S_product1.Off and S_product2.On) and (S_product3.Off and S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On)) or (A_x2distributing.On and S_Hinitialized.On and (S_product1.Off and S_product2.On) and (S_product3.Off and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_atdrop.On and S_zpos_atup.On))) or A_x2distributing.On and (S_Hinitialized.On and S_product1.Off) and (S_product2.Off and S_gripper.Off and (S_xpos_atdrop.On and S_zpos_atup.On)))));
+      edge .A_x2testing.c_on when (S_Hinitialized.Off or (S_product1.Off or S_product2.Off) or (S_product3.Off or S_xpos_at3.On or (S_xpos_at2.On or S_xpos_at1.On))) and (S_Hinitialized.Off or (S_product1.Off or S_product2.Off) or (S_product3.On or (S_xpos_at2.On or S_xpos_at1.On))) and ((S_Hinitialized.Off or (S_product1.Off or S_product2.On) or (S_product3.Off or (S_xpos_at3.On or S_xpos_at1.On))) and (S_Hinitialized.Off or S_product1.Off or (S_product2.On or (S_product3.On or S_xpos_at1.On)))) and ((S_Hinitialized.Off or (S_product1.On or S_product2.Off) or (S_product3.Off or S_xpos_at3.On or (S_xpos_at2.On or S_xpos_at1.On))) and (S_Hinitialized.Off or (S_product1.On or S_product2.Off) or (S_product3.On or (S_xpos_at2.On or S_xpos_at1.On))) and ((S_Hinitialized.Off or S_product1.On or (S_product2.On or (S_xpos_at3.On or S_xpos_at1.On))) and S_Hinitialized.On));
+      edge .A_zdown.c_off when S_Hinitialized.On and A_gripperclose.On and (S_gripper.On and (S_xpos_at3.On and S_zpos_atdown.On)) or S_Hinitialized.On and (A_gripperclose.On and S_gripper.On) and (S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atdown.On)) or (S_Hinitialized.On and (A_gripperclose.On and S_gripper.On) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atdown.On)) or S_Hinitialized.On and A_gripperclose.Off and (S_xpos_atdrop.On and S_zpos_atdown.On));
+      edge .A_zdown.c_on when A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.On)) and (S_product2.On and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.On)) and (S_product2.On and (S_product3.On and S_gripper.Off) and (S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atup.On))) or (A_x2distributing.On and (A_x2testing.On and S_Hinitialized.On) and (S_product4.On and (S_product1.On and S_product2.On)) and (S_product3.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.On)) and (S_product2.On and S_product3.Off and (S_gripper.Off and (S_xpos_at2.On and S_zpos_atup.On)))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.On)) and (S_product2.On and (S_product3.Off and S_gripper.Off) and (S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.On)) and (S_product2.Off and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.On)) and (S_product2.Off and (S_product3.On and S_gripper.Off) and (S_xpos_at3.Off and (S_xpos_at1.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.On)) and (S_product2.Off and S_product3.Off and (S_gripper.Off and (S_xpos_at1.On and S_zpos_atup.On))))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.Off)) and (S_product2.On and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.Off)) and (S_product2.On and (S_product3.On and S_gripper.Off) and (S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atup.On))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.Off)) and (S_product2.On and S_product3.Off and (S_gripper.Off and (S_xpos_at2.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.On and S_product1.Off)) and (S_product2.Off and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On)))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.On and S_product3.On and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.On and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.On and (S_product3.On and S_gripper.Off) and (S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atup.On))) or A_x2distributing.On and (A_x2testing.On and S_Hinitialized.On) and (S_product4.Off and (S_product1.On and S_product2.On)) and (S_product3.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atup.On)))))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.On and S_product3.Off and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.On and S_product3.Off and (S_gripper.Off and (S_xpos_at2.On and S_zpos_atup.On))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.On and (S_product3.Off and S_gripper.Off) and (S_xpos_at2.Off and (S_xpos_at1.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.Off and S_product3.On and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On)))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.Off and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.Off and (S_product3.On and S_gripper.Off) and (S_xpos_at3.Off and (S_xpos_at1.On and S_zpos_atup.On))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.Off and S_product3.Off and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.On)) and (S_product2.Off and S_product3.Off and (S_gripper.Off and (S_xpos_at1.On and S_zpos_atup.On))))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.On and S_product3.On and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.On and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.On and (S_product3.On and S_gripper.Off) and (S_xpos_at3.Off and (S_xpos_at2.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.On and S_product3.Off and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On)))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.On and S_product3.Off and (S_gripper.Off and (S_xpos_at2.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.Off and S_product3.On and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On))) or (A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.Off and S_product3.On and (S_gripper.Off and (S_xpos_at3.On and S_zpos_atup.On))) or A_x2distributing.On and A_x2testing.On and (S_Hinitialized.On and (S_product4.Off and S_product1.Off)) and (S_product2.Off and S_product3.Off and (S_gripper.On and (S_xpos_atdrop.On and S_zpos_atup.On)))))));
+      edge .BTimer.c_on when S_atend.On;
+      edge .BTimer.c_reset when A_conveyerB.Off or S_atin.On;
+      edge .STimer.c_on when S_product.On;
+      edge .STimer.c_reset when S_slidefull.On;
+      edge .Timer.c_on when S_turntable.On;
+      edge .Timer.c_reset when S_turntable.Off;
+      edge .TTimer.c_on when A_elevator_down.On and S_Tinitialized.On or A_elevator_down.Off and ((PusherLift.Two or PusherLift.Four) and S_Tinitialized.On);
+      edge .TTimer.c_reset when A_elevator_down.Off and ((PusherLift.One or PusherLift.Three) and S_Tinitialized.On);
+  end
+end
+automaton HardwareMapDH:
+  disc bool out_a_Dstartled = false;
+  disc bool out_a_Dresetled = false;
+  disc bool out_a_DledQ1 = true;
+  disc bool out_a_DledQ2 = true;
+  disc bool out_a_Dout4 = false;
+  disc bool out_a_Dout5 = false;
+  disc bool out_a_Dout6 = false;
+  disc bool out_a_Dout7 = false;
+  disc bool out_a_pusher1 = false;
+  disc bool out_a_pusher2 = false;
+  disc bool out_a_pusher3 = false;
+  disc bool out_a_Hstartled = false;
+  disc bool out_a_Hresetled = false;
+  disc bool out_a_HledQ1 = true;
+  disc bool out_a_HledQ2 = true;
+  disc bool out_a_Hout4 = false;
+  disc bool out_a_Hout5 = false;
+  disc bool out_a_Hout6 = false;
+  disc bool out_a_Hout7 = false;
+  disc bool out_a_x2distributing = true;
+  disc bool out_a_x2testing = true;
+  disc bool out_a_zdown = false;
+  disc bool out_a_gripperclose = false;
+  disc bool out_a_transfer2pickpos = false;
+  disc bool out_a_transfer2droppos = false;
+  disc bool out_a_vacuum = false;
+  disc bool out_a_ejectpulse = false;
+  disc bool out_a_handlingready = false;
+  disc int init_err_sen_idx = -1;
+  disc int init_err_led_idx = 0;
+  cont t der 1.0;
+  location init0:
+    initial;
+    edge when t >= 2.0 goto init1;
+  location init1:
+    edge do out_a_x2testing := false goto init2;
+  location init2:
+    edge when s_xpos_at1 or s_xpos_at2 do out_a_x2testing := true goto init3;
+  location init3:
+    edge do out_a_transfer2pickpos := true goto init4;
+  location init4:
+    edge when s_transfer_atpickup do out_a_transfer2pickpos := false goto init5;
+  location init5:
+    edge do out_a_transfer2droppos := true goto init6;
+  location init6:
+    edge when s_transfer_athalfway do out_a_transfer2droppos := false goto init7;
+  location init7:
+    edge do out_a_x2distributing := false goto init8;
+  location init8:
+    edge when s_xpos_atdrop do out_a_x2distributing := true, t := 0.0 goto init9;
+  location init9:
+    edge when t >= 1 goto init_sensor_check;
+  location init_sensor_check:
+    edge when s_Dstartbutton do init_err_sen_idx := 0 goto init_error;
+    edge when not s_Dstopbutton do init_err_sen_idx := 1 goto init_error;
+    edge when s_Dautoswitch do init_err_sen_idx := 2 goto init_error;
+    edge when s_Dresetbutton do init_err_sen_idx := 3 goto init_error;
+    edge when s_Din4 do init_err_sen_idx := 4 goto init_error;
+    edge when s_Din5 do init_err_sen_idx := 5 goto init_error;
+    edge when s_Din6 do init_err_sen_idx := 6 goto init_error;
+    edge when s_Din7 do init_err_sen_idx := 7 goto init_error;
+    edge when not s_pusher1_in do init_err_sen_idx := 8 goto init_error;
+    edge when s_pusher1_out do init_err_sen_idx := 9 goto init_error;
+    edge when not s_stack1filled do init_err_sen_idx := 10 goto init_error;
+    edge when s_product1 do init_err_sen_idx := 11 goto init_error;
+    edge when not s_pusher2_in do init_err_sen_idx := 12 goto init_error;
+    edge when s_pusher2_out do init_err_sen_idx := 13 goto init_error;
+    edge when not s_stack2filled do init_err_sen_idx := 14 goto init_error;
+    edge when s_product2 do init_err_sen_idx := 15 goto init_error;
+    edge when not s_pusher3_in do init_err_sen_idx := 16 goto init_error;
+    edge when s_pusher3_out do init_err_sen_idx := 17 goto init_error;
+    edge when not s_stack3filled do init_err_sen_idx := 18 goto init_error;
+    edge when s_product3 do init_err_sen_idx := 19 goto init_error;
+    edge when s_Hstartbutton do init_err_sen_idx := 22 goto init_error;
+    edge when not s_Hstopbutton do init_err_sen_idx := 23 goto init_error;
+    edge when s_Hautoswitch do init_err_sen_idx := 24 goto init_error;
+    edge when s_Hresetbutton do init_err_sen_idx := 25 goto init_error;
+    edge when s_Hin4 do init_err_sen_idx := 26 goto init_error;
+    edge when s_Hin5 do init_err_sen_idx := 27 goto init_error;
+    edge when s_Hin6 do init_err_sen_idx := 28 goto init_error;
+    edge when s_Hin7 do init_err_sen_idx := 29 goto init_error;
+    edge when s_xpos_at1 do init_err_sen_idx := 33 goto init_error;
+    edge when s_xpos_at2 do init_err_sen_idx := 34 goto init_error;
+    edge when s_xpos_at3 do init_err_sen_idx := 35 goto init_error;
+    edge when not s_xpos_atdrop do init_err_sen_idx := 36 goto init_error;
+    edge when not s_zpos_atup do init_err_sen_idx := 37 goto init_error;
+    edge when s_zpos_atdown do init_err_sen_idx := 38 goto init_error;
+    edge when s_gripper do init_err_sen_idx := 39 goto init_error;
+    edge when s_transfer_atpickup do init_err_sen_idx := 40 goto init_error;
+    edge when s_transfer_atdrop do init_err_sen_idx := 41 goto init_error;
+    edge when not s_transfer_athalfway do init_err_sen_idx := 42 goto init_error;
+    edge when s_vacuum do init_err_sen_idx := 43 goto init_error;
+    edge when s_product4 do init_err_sen_idx := 44 goto init_error;
+    edge when not s_Dstartbutton, s_Dstopbutton, not s_Dautoswitch, not s_Dresetbutton, not s_Din4, not s_Din5, not s_Din6, not s_Din7, s_pusher1_in, not s_pusher1_out, s_stack1filled, not s_product1, s_pusher2_in, not s_pusher2_out, s_stack2filled, not s_product2, s_pusher3_in, not s_pusher3_out, s_stack3filled, not s_product3, not s_Hstartbutton, s_Hstopbutton, not s_Hautoswitch, not s_Hresetbutton, not s_Hin4, not s_Hin5, not s_Hin6, not s_Hin7, not s_xpos_at1, not s_xpos_at2, not s_xpos_at3, s_xpos_atdrop, s_zpos_atup, not s_zpos_atdown, not s_gripper, not s_transfer_atpickup, not s_transfer_atdrop, s_transfer_athalfway, not s_vacuum, not s_product4 goto init_ok;
+  location init_error:
+    edge when t >= 0.5, init_err_led_idx = 0 do t := 0.0, init_err_led_idx := 1, out_a_DledQ1 := true, out_a_DledQ2 := false, out_a_HledQ1 := true, out_a_HledQ2 := false;
+    edge when t >= 0.5, init_err_led_idx = 1 do t := 0.0, init_err_led_idx := 0, out_a_DledQ1 := false, out_a_DledQ2 := true, out_a_HledQ1 := false, out_a_HledQ2 := true;
+  location init_ok:
+    edge do out_a_DledQ1 := false, out_a_DledQ2 := false, out_a_HledQ1 := false, out_a_HledQ2 := false goto initialized;
+  location initialized:
+    edge when out_a_Dstartled != false do out_a_Dstartled := false;
+    edge when out_a_Dresetled != false do out_a_Dresetled := false;
+    edge when out_a_DledQ1 != false do out_a_DledQ1 := false;
+    edge when out_a_DledQ2 != false do out_a_DledQ2 := false;
+    edge when out_a_Dout4 != false do out_a_Dout4 := false;
+    edge when out_a_Dout5 != false do out_a_Dout5 := false;
+    edge when out_a_Dout6 != false do out_a_Dout6 := false;
+    edge when out_a_Dout7 != false do out_a_Dout7 := false;
+    edge when out_a_pusher1 != sup.A_pusher1.On do out_a_pusher1 := sup.A_pusher1.On;
+    edge when out_a_pusher2 != sup.A_pusher2.On do out_a_pusher2 := sup.A_pusher2.On;
+    edge when out_a_pusher3 != sup.A_pusher3.On do out_a_pusher3 := sup.A_pusher3.On;
+    edge when out_a_Hstartled != false do out_a_Hstartled := false;
+    edge when out_a_Hresetled != false do out_a_Hresetled := false;
+    edge when out_a_HledQ1 != false do out_a_HledQ1 := false;
+    edge when out_a_HledQ2 != false do out_a_HledQ2 := false;
+    edge when out_a_Hout4 != false do out_a_Hout4 := false;
+    edge when out_a_Hout5 != false do out_a_Hout5 := false;
+    edge when out_a_Hout6 != false do out_a_Hout6 := false;
+    edge when out_a_Hout7 != false do out_a_Hout7 := false;
+    edge when out_a_x2distributing != sup.A_x2distributing.On do out_a_x2distributing := sup.A_x2distributing.On;
+    edge when out_a_x2testing != sup.A_x2testing.On do out_a_x2testing := sup.A_x2testing.On;
+    edge when out_a_zdown != sup.A_zdown.On do out_a_zdown := sup.A_zdown.On;
+    edge when out_a_gripperclose != sup.A_gripperclose.On do out_a_gripperclose := sup.A_gripperclose.On;
+    edge when out_a_transfer2pickpos != sup.A_transfer2pickpos.On do out_a_transfer2pickpos := sup.A_transfer2pickpos.On;
+    edge when out_a_transfer2droppos != sup.A_transfer2droppos.On do out_a_transfer2droppos := sup.A_transfer2droppos.On;
+    edge when out_a_vacuum != sup.A_vacuum.On do out_a_vacuum := sup.A_vacuum.On;
+    edge when out_a_ejectpulse != sup.A_ejectpulse.On do out_a_ejectpulse := sup.A_ejectpulse.On;
+    edge when out_a_handlingready != sup.A_handlingready.On do out_a_handlingready := sup.A_handlingready.On;
+end
+automaton HardwareMapTB:
+  disc bool out_a_Tstartled = false;
+  disc bool out_a_Tresetled = false;
+  disc bool out_a_TledQ1 = true;
+  disc bool out_a_TledQ2 = true;
+  disc bool out_a_Tout4 = false;
+  disc bool out_a_Tout5 = false;
+  disc bool out_a_Tout6 = false;
+  disc bool out_a_Tout7 = false;
+  disc bool out_a_elevator_up = false;
+  disc bool out_a_elevator_down = true;
+  disc bool out_a_pusher = false;
+  disc bool out_a_airslide = false;
+  disc bool out_a_testingready = false;
+  disc bool out_a_Bstartled = false;
+  disc bool out_a_Bresetled = false;
+  disc bool out_a_BledQ1 = true;
+  disc bool out_a_BledQ2 = true;
+  disc bool out_a_Bout4 = false;
+  disc bool out_a_Bout5 = false;
+  disc bool out_a_Bout6 = false;
+  disc bool out_a_Bout7 = false;
+  disc bool out_a_separator = false;
+  disc bool out_a_conveyerB = false;
+  disc bool out_a_bufferingready = false;
+  disc int init_err_sen_idx = -1;
+  disc int init_err_led_idx = 0;
+  cont t der 1.0;
+  location init0:
+    initial;
+    edge when t >= 2.0 goto init1;
+  location init1:
+    edge do out_a_airslide := true, out_a_conveyerB := true, t := 0.0 goto init2;
+  location init2:
+    edge when t >= 5 do out_a_airslide := false, out_a_conveyerB := false goto init_sensor_check;
+  location init_sensor_check:
+    edge when s_Tstartbutton do init_err_sen_idx := 0 goto init_error;
+    edge when not s_Tstopbutton do init_err_sen_idx := 1 goto init_error;
+    edge when s_Tautoswitch do init_err_sen_idx := 2 goto init_error;
+    edge when s_Tresetbutton do init_err_sen_idx := 3 goto init_error;
+    edge when s_Tin4 do init_err_sen_idx := 4 goto init_error;
+    edge when s_Tin5 do init_err_sen_idx := 5 goto init_error;
+    edge when s_Tin6 do init_err_sen_idx := 6 goto init_error;
+    edge when s_Tin7 do init_err_sen_idx := 7 goto init_error;
+    edge when s_elevator_up do init_err_sen_idx := 8 goto init_error;
+    edge when not s_elevator_down do init_err_sen_idx := 9 goto init_error;
+    edge when s_pusher do init_err_sen_idx := 10 goto init_error;
+    edge when s_opticalT do init_err_sen_idx := 11 goto init_error;
+    edge when s_capacitive do init_err_sen_idx := 12 goto init_error;
+    edge when s_reflective do init_err_sen_idx := 13 goto init_error;
+    edge when s_productheight do init_err_sen_idx := 14 goto init_error;
+    edge when s_Bstartbutton do init_err_sen_idx := 17 goto init_error;
+    edge when not s_Bstopbutton do init_err_sen_idx := 18 goto init_error;
+    edge when s_Bautoswitch do init_err_sen_idx := 19 goto init_error;
+    edge when s_Bresetbutton do init_err_sen_idx := 20 goto init_error;
+    edge when s_Bin4 do init_err_sen_idx := 21 goto init_error;
+    edge when s_Bin5 do init_err_sen_idx := 22 goto init_error;
+    edge when s_Bin6 do init_err_sen_idx := 23 goto init_error;
+    edge when s_Bin7 do init_err_sen_idx := 24 goto init_error;
+    edge when s_atin do init_err_sen_idx := 25 goto init_error;
+    edge when s_atseparator do init_err_sen_idx := 26 goto init_error;
+    edge when s_atend do init_err_sen_idx := 27 goto init_error;
+    edge when s_separator_opened do init_err_sen_idx := 28 goto init_error;
+    edge when not s_separator_closed do init_err_sen_idx := 29 goto init_error;
+    edge when not s_Tstartbutton, s_Tstopbutton, not s_Tautoswitch, not s_Tresetbutton, not s_Tin4, not s_Tin5, not s_Tin6, not s_Tin7, not s_elevator_up, s_elevator_down, not s_pusher, not s_opticalT, not s_capacitive, not s_reflective, not s_productheight, not s_Bstartbutton, s_Bstopbutton, not s_Bautoswitch, not s_Bresetbutton, not s_Bin4, not s_Bin5, not s_Bin6, not s_Bin7, not s_atin, not s_atseparator, not s_atend, not s_separator_opened, s_separator_closed goto init_ok;
+  location init_error:
+    edge when t >= 0.5, init_err_led_idx = 0 do t := 0.0, init_err_led_idx := 1, out_a_TledQ1 := true, out_a_TledQ2 := false, out_a_BledQ1 := true, out_a_BledQ2 := false;
+    edge when t >= 0.5, init_err_led_idx = 1 do t := 0.0, init_err_led_idx := 0, out_a_TledQ1 := false, out_a_TledQ2 := true, out_a_BledQ1 := false, out_a_BledQ2 := true;
+  location init_ok:
+    edge do out_a_TledQ1 := false, out_a_TledQ2 := false, out_a_BledQ1 := false, out_a_BledQ2 := false goto initialized;
+  location initialized:
+    edge when out_a_Tstartled != false do out_a_Tstartled := false;
+    edge when out_a_Tresetled != false do out_a_Tresetled := false;
+    edge when out_a_TledQ1 != false do out_a_TledQ1 := false;
+    edge when out_a_TledQ2 != false do out_a_TledQ2 := false;
+    edge when out_a_Tout4 != false do out_a_Tout4 := false;
+    edge when out_a_Tout5 != false do out_a_Tout5 := false;
+    edge when out_a_Tout6 != false do out_a_Tout6 := false;
+    edge when out_a_Tout7 != false do out_a_Tout7 := false;
+    edge when out_a_elevator_up != sup.A_elevator_up.On do out_a_elevator_up := sup.A_elevator_up.On;
+    edge when out_a_elevator_down != sup.A_elevator_down.On do out_a_elevator_down := sup.A_elevator_down.On;
+    edge when out_a_pusher != sup.A_pusher.On do out_a_pusher := sup.A_pusher.On;
+    edge when out_a_airslide != sup.A_airslide.On do out_a_airslide := sup.A_airslide.On;
+    edge when out_a_testingready != sup.A_testingready.On do out_a_testingready := sup.A_testingready.On;
+    edge when out_a_Bstartled != false do out_a_Bstartled := false;
+    edge when out_a_Bresetled != false do out_a_Bresetled := false;
+    edge when out_a_BledQ1 != false do out_a_BledQ1 := false;
+    edge when out_a_BledQ2 != false do out_a_BledQ2 := false;
+    edge when out_a_Bout4 != false do out_a_Bout4 := false;
+    edge when out_a_Bout5 != false do out_a_Bout5 := false;
+    edge when out_a_Bout6 != false do out_a_Bout6 := false;
+    edge when out_a_Bout7 != false do out_a_Bout7 := false;
+    edge when out_a_separator != sup.A_separator.On do out_a_separator := sup.A_separator.On;
+    edge when out_a_conveyerB != sup.A_conveyerB.On do out_a_conveyerB := sup.A_conveyerB.On;
+    edge when out_a_bufferingready != sup.A_bufferingready.On do out_a_bufferingready := sup.A_bufferingready.On;
+end
+automaton HardwareMapP:
+  disc bool out_a_Pstartled = false;
+  disc bool out_a_Presetled = false;
+  disc bool out_a_PledQ1 = true;
+  disc bool out_a_PledQ2 = true;
+  disc bool out_a_Pout4 = false;
+  disc bool out_a_Pout5 = false;
+  disc bool out_a_Pout6 = false;
+  disc bool out_a_Pout7 = false;
+  disc bool out_a_drill = false;
+  disc bool out_a_turntable = false;
+  disc bool out_a_drilldown = false;
+  disc bool out_a_drillup = true;
+  disc bool out_a_clamp = false;
+  disc bool out_a_tester = false;
+  disc bool out_a_eject = false;
+  disc bool out_a_processingready = false;
+  disc int init_err_sen_idx = -1;
+  disc int init_err_led_idx = 0;
+  cont t der 1.0;
+  location init0:
+    initial;
+    edge when t >= 2.0 goto init1;
+  location init1:
+    edge do out_a_turntable := true goto init2;
+  location init2:
+    edge when not s_turntable goto init3;
+  location init3:
+    edge when s_turntable do out_a_turntable := false, t := 0.0 goto init4;
+  location init4:
+    edge when t >= 1 goto init_sensor_check;
+  location init_sensor_check:
+    edge when s_Pstartbutton do init_err_sen_idx := 0 goto init_error;
+    edge when not s_Pstopbutton do init_err_sen_idx := 1 goto init_error;
+    edge when s_Pautoswitch do init_err_sen_idx := 2 goto init_error;
+    edge when s_Presetbutton do init_err_sen_idx := 3 goto init_error;
+    edge when s_Pin4 do init_err_sen_idx := 4 goto init_error;
+    edge when s_Pin5 do init_err_sen_idx := 5 goto init_error;
+    edge when s_Pin6 do init_err_sen_idx := 6 goto init_error;
+    edge when s_Pin7 do init_err_sen_idx := 7 goto init_error;
+    edge when s_atinput do init_err_sen_idx := 8 goto init_error;
+    edge when s_attest do init_err_sen_idx := 9 goto init_error;
+    edge when s_atdrill do init_err_sen_idx := 10 goto init_error;
+    edge when s_atexit do init_err_sen_idx := 11 goto init_error;
+    edge when s_atspare do init_err_sen_idx := 12 goto init_error;
+    edge when s_clamp do init_err_sen_idx := 13 goto init_error;
+    edge when s_test_ok do init_err_sen_idx := 14 goto init_error;
+    edge when not s_drill_up do init_err_sen_idx := 15 goto init_error;
+    edge when s_drill_down do init_err_sen_idx := 16 goto init_error;
+    edge when not s_turntable do init_err_sen_idx := 17 goto init_error;
+    edge when not s_Pstartbutton, s_Pstopbutton, not s_Pautoswitch, not s_Presetbutton, not s_Pin4, not s_Pin5, not s_Pin6, not s_Pin7, not s_atinput, not s_attest, not s_atdrill, not s_atexit, not s_atspare, not s_clamp, not s_test_ok, s_drill_up, not s_drill_down, s_turntable goto init_ok;
+  location init_error:
+    edge when t >= 0.5, init_err_led_idx = 0 do t := 0.0, init_err_led_idx := 1, out_a_PledQ1 := true, out_a_PledQ2 := false;
+    edge when t >= 0.5, init_err_led_idx = 1 do t := 0.0, init_err_led_idx := 0, out_a_PledQ1 := false, out_a_PledQ2 := true;
+  location init_ok:
+    edge do out_a_PledQ1 := false, out_a_PledQ2 := false goto initialized;
+  location initialized:
+    edge when out_a_Pstartled != false do out_a_Pstartled := false;
+    edge when out_a_Presetled != false do out_a_Presetled := false;
+    edge when out_a_PledQ1 != false do out_a_PledQ1 := false;
+    edge when out_a_PledQ2 != false do out_a_PledQ2 := false;
+    edge when out_a_Pout4 != false do out_a_Pout4 := false;
+    edge when out_a_Pout5 != false do out_a_Pout5 := false;
+    edge when out_a_Pout6 != false do out_a_Pout6 := false;
+    edge when out_a_Pout7 != false do out_a_Pout7 := false;
+    edge when out_a_drill != sup.A_drill.On do out_a_drill := sup.A_drill.On;
+    edge when out_a_turntable != sup.A_turntable.On do out_a_turntable := sup.A_turntable.On;
+    edge when out_a_drilldown != sup.A_drilldown.On do out_a_drilldown := sup.A_drilldown.On;
+    edge when out_a_drillup != sup.A_drillup.On do out_a_drillup := sup.A_drillup.On;
+    edge when out_a_clamp != sup.A_clamp.On do out_a_clamp := sup.A_clamp.On;
+    edge when out_a_tester != sup.A_tester.On do out_a_tester := sup.A_tester.On;
+    edge when out_a_eject != sup.A_eject.On do out_a_eject := sup.A_eject.On;
+    edge when out_a_processingready != sup.A_processingready.On do out_a_processingready := sup.A_processingready.On;
+end
+automaton HardwareMapS:
+  disc bool out_a_Sstartled = false;
+  disc bool out_a_Sresetled = false;
+  disc bool out_a_SledQ1 = true;
+  disc bool out_a_SledQ2 = true;
+  disc bool out_a_Sout4 = false;
+  disc bool out_a_Sout5 = false;
+  disc bool out_a_Sout6 = false;
+  disc bool out_a_Sout7 = false;
+  disc bool out_a_conveyer = false;
+  disc bool out_a_gate1 = false;
+  disc bool out_a_gate2 = false;
+  disc bool out_a_stopperretract = false;
+  disc bool out_a_sortingready = false;
+  disc int init_err_sen_idx = -1;
+  disc int init_err_led_idx = 0;
+  cont t der 1.0;
+  location init0:
+    initial;
+    edge when t >= 2.0 goto init1;
+  location init1:
+    edge do out_a_stopperretract := true, out_a_conveyer := true, t := 0.0 goto init2;
+  location init2:
+    edge when t >= 5 do out_a_stopperretract := false, out_a_conveyer := false goto init_sensor_check;
+  location init_sensor_check:
+    edge when s_Sstartbutton do init_err_sen_idx := 0 goto init_error;
+    edge when not s_Sstopbutton do init_err_sen_idx := 1 goto init_error;
+    edge when s_Sautoswitch do init_err_sen_idx := 2 goto init_error;
+    edge when s_Sresetbutton do init_err_sen_idx := 3 goto init_error;
+    edge when s_Sin4 do init_err_sen_idx := 4 goto init_error;
+    edge when s_Sin5 do init_err_sen_idx := 5 goto init_error;
+    edge when s_Sin6 do init_err_sen_idx := 6 goto init_error;
+    edge when s_Sin7 do init_err_sen_idx := 7 goto init_error;
+    edge when s_product do init_err_sen_idx := 8 goto init_error;
+    edge when s_inductive do init_err_sen_idx := 9 goto init_error;
+    edge when s_optical do init_err_sen_idx := 10 goto init_error;
+    edge when s_slidefull do init_err_sen_idx := 11 goto init_error;
+    edge when not s_gate1_opened do init_err_sen_idx := 12 goto init_error;
+    edge when s_gate1_closed do init_err_sen_idx := 13 goto init_error;
+    edge when not s_gate2_opened do init_err_sen_idx := 14 goto init_error;
+    edge when s_gate2_closed do init_err_sen_idx := 15 goto init_error;
+    edge when not s_Sstartbutton, s_Sstopbutton, not s_Sautoswitch, not s_Sresetbutton, not s_Sin4, not s_Sin5, not s_Sin6, not s_Sin7, not s_product, not s_inductive, not s_optical, not s_slidefull, s_gate1_opened, not s_gate1_closed, s_gate2_opened, not s_gate2_closed goto init_ok;
+  location init_error:
+    edge when t >= 0.5, init_err_led_idx = 0 do t := 0.0, init_err_led_idx := 1, out_a_SledQ1 := true, out_a_SledQ2 := false;
+    edge when t >= 0.5, init_err_led_idx = 1 do t := 0.0, init_err_led_idx := 0, out_a_SledQ1 := false, out_a_SledQ2 := true;
+  location init_ok:
+    edge do out_a_SledQ1 := false, out_a_SledQ2 := false goto initialized;
+  location initialized:
+    edge when out_a_Sstartled != false do out_a_Sstartled := false;
+    edge when out_a_Sresetled != false do out_a_Sresetled := false;
+    edge when out_a_SledQ1 != false do out_a_SledQ1 := false;
+    edge when out_a_SledQ2 != false do out_a_SledQ2 := false;
+    edge when out_a_Sout4 != false do out_a_Sout4 := false;
+    edge when out_a_Sout5 != false do out_a_Sout5 := false;
+    edge when out_a_Sout6 != false do out_a_Sout6 := false;
+    edge when out_a_Sout7 != false do out_a_Sout7 := false;
+    edge when out_a_conveyer != sup.A_conveyer.On do out_a_conveyer := sup.A_conveyer.On;
+    edge when out_a_gate1 != sup.A_gate1.On do out_a_gate1 := sup.A_gate1.On;
+    edge when out_a_gate2 != sup.A_gate2.On do out_a_gate2 := sup.A_gate2.On;
+    edge when out_a_stopperretract != sup.A_stopperretract.On do out_a_stopperretract := sup.A_stopperretract.On;
+    edge when out_a_sortingready != sup.A_sortingready.On do out_a_sortingready := sup.A_sortingready.On;
+end
